@@ -15,9 +15,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         <main class="landing-main">
             <section class="hero-section">
                 <p class="eyebrow">
-                    Design your next home before moving a single chair
+                    Design your space, perfectly measured.
                 </p>
-                <h1>Scan your room. Place furniture. Shop smarter.</h1>
+                <h1>Scan, place, and plan your ideal home with augmented reality.</h1>
                 <p class="hero-copy">
                     A planning app that turns your space into an interactive
                     digital twin. Capture room dimensions, bring in your
@@ -26,102 +26,89 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 </p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="#waitlist"
-                        >Join the waitlist</a
-                    >
-                    <a class="btn btn-secondary" href="#how-it-works"
-                        >See how it works</a
+                        >Get Early Access & Updates</a
                     >
                 </div>
             </section>
 
             <section class="experience" aria-labelledby="experience-title">
-                <div>
+                <div class="experience-text">
                     <h2 id="experience-title">Feel how it works in 3D</h2>
                     <p>
-                        Drag your cursor on desktop or tilt your phone to
-                        preview how furniture placement can look from different
-                        angles.
+                        Drag your cursor on desktop or use touch on mobile to
+                        interact with the room and preview furniture placement.
                     </p>
                     <ul class="bullets">
                         <li>
-                            Room dimensions from floorplan scan or camera
-                            walk-through
+                            Accurate room dimensions from floorplan scan
                         </li>
                         <li>
-                            Virtual replicas of your real furniture for move-day
-                            planning
+                            Virtual replicas of your real furniture
                         </li>
                         <li>
-                            One inventory that follows you from apartment to
-                            forever home
+                            Seamlessly swap and place new pieces
                         </li>
                     </ul>
                 </div>
-                <div class="room-stage" id="roomStage">
-                    <div class="room-cube" id="roomCube" aria-hidden="true">
-                        <div class="face face-back"></div>
-                        <div class="face face-floor"></div>
-                        <div class="face face-left"></div>
-
-                        <div class="block-3d art-frame">
-                            <div class="art-canvas"></div>
-                        </div>
-
-                        <div class="block-3d rug"></div>
-
-                        <div class="block-3d shelf-1"></div>
-                        <div class="block-3d shelf-2"></div>
-
-                        <div class="block-3d sofa-base"></div>
-                        <div class="block-3d sofa-back"></div>
-                        <div class="block-3d sofa-arm-l"></div>
-                        <div class="block-3d sofa-arm-r"></div>
-
-                        <div class="block-3d table-base"></div>
-                        <div class="block-3d table-top"></div>
-                    </div>
+                <div class="room-stage" id="three-container">
+                    <!-- Three.js canvas will be injected here -->
                 </div>
             </section>
 
             <section
                 id="how-it-works"
-                class="feature-grid"
+                class="features-section"
                 aria-label="Product features"
             >
-                <article class="feature-card">
-                    <h3>Scan The Space</h3>
-                    <p>
-                        Upload a floorplan for instant dimensions or use your
-                        camera to physically scan rooms with guided anchors.
-                    </p>
+                <article class="feature-block block-reverse">
+                    <div class="feature-content">
+                        <h3>No more guessing. Accurate floorplans in seconds.</h3>
+                        <p>
+                            Eliminate the biggest source of error when buying furniture: inaccurate measurements. Upload a floorplan for instant dimensions or use your camera to physically scan rooms with guided anchors.
+                        </p>
+                        <ul class="bullets">
+                            <li>Detects walls, corners, doors, and windows</li>
+                            <li>Calculates accurate room dimensions automatically</li>
+                            <li>Generates a clean, to-scale digital floor plan</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual placeholder-visual">
+                        <div class="visual-badge">📸 Scanning Feature Demo Placeholder</div>
+                    </div>
                 </article>
-                <article class="feature-card">
-                    <h3>Scan Your Furniture</h3>
-                    <p>
-                        Turn your existing sofa, desk, and storage into movable
-                        virtual pieces so you can plan every layout option.
-                    </p>
+
+                <article class="feature-block">
+                    <div class="feature-content">
+                        <h3>Keep track of what you own, and what you need.</h3>
+                        <p>
+                            Turn your existing sofa, desk, and storage into movable virtual pieces. Save it to a personal virtual inventory that stays with you across sessions and moves.
+                        </p>
+                        <ul class="bullets">
+                            <li>Generate a 3D digital model of each piece</li>
+                            <li>Place, move, and rotate furniture in your digital room</li>
+                            <li>Maintain a move-ready inventory for future homes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual placeholder-visual">
+                        <div class="visual-badge">🛋️ Virtual Inventory Screen Mockup</div>
+                    </div>
                 </article>
-                <article class="feature-card">
-                    <h3>Inventory And Shortlists</h3>
-                    <p>
-                        Keep a move-ready inventory and maintain shopping
-                        shortlists while comparing fit, style, and budget.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Partner Catalog Mode</h3>
-                    <p>
-                        Browse partner catalogs like IKEA in digital form, place
-                        products in your own room, and validate scale instantly.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Render And AR Views</h3>
-                    <p>
-                        Switch between high-fidelity room renders and live AR
-                        overlays to decide with confidence before purchase.
-                    </p>
+
+                <article class="feature-block block-reverse">
+                    <div class="feature-content">
+                        <h3>See it before you buy it.</h3>
+                        <p>
+                            Seamlessly integrate the catalogs of major retailers. Browse furniture by style, drop products directly into your scanned room, and switch between high-fidelity renders and live AR overlays to validate scale instantly.
+                        </p>
+                        <ul class="bullets">
+                            <li>Check if new pieces match your walls and existing furniture</li>
+                            <li>View in AR by pointing your phone at the real room</li>
+                            <li>Shortlist items to a wishlist and purchase directly</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual placeholder-visual">
+                        <div class="visual-badge">📱 AR Shopping & Render Mockup</div>
+                    </div>
                 </article>
             </section>
 
@@ -136,10 +123,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
             </section>
 
             <section id="waitlist" class="cta" aria-labelledby="cta-title">
-                <h2 id="cta-title">Get early access to the beta</h2>
+                <h2 id="cta-title">Ready to start designing? Join our community.</h2>
                 <p>
-                    Sign up for product updates, preview invites, and launch
-                    offers for early users planning their next move.
+                    Sign up for product updates, beta invites, and exclusive home design tips.
                 </p>
                 <form class="newsletter-form">
                     <label for="email" class="sr-only">Email address</label>
@@ -150,29 +136,185 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                         placeholder="you@home.com"
                         required
                     />
-                    <button type="submit">Notify me</button>
+                    <button type="submit">Sign Up for Our Newsletter</button>
                 </form>
             </section>
         </main>
         <Footer />
 
         <script>
-            const stage = document.getElementById("roomStage");
-            const cube = document.getElementById("roomCube");
+            import * as THREE from 'three';
+            import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-            if (stage && cube) {
-                stage.addEventListener("pointermove", (event) => {
-                    const rect = stage.getBoundingClientRect();
-                    const x = (event.clientX - rect.left) / rect.width - 0.5;
-                    const y = (event.clientY - rect.top) / rect.height - 0.5;
-                    const rotateY = x * 28;
-                    const rotateX = -y * 18;
-                    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            const container = document.getElementById('three-container');
+
+            if (container) {
+                const scene = new THREE.Scene();
+                // We'll give the scene a soft, transparent background to blend with CSS
+                // We do this by setting alpha: true on renderer
+
+                // Add soft lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+                scene.add(ambientLight);
+
+                const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+                dirLight.position.set(5, 10, 7);
+                dirLight.castShadow = true;
+                scene.add(dirLight);
+
+                // Setup camera
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+                camera.position.set(4, 3, 5);
+
+                const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.shadowMap.enabled = true;
+                container.appendChild(renderer.domElement);
+
+                // Controls
+                const controls = new OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.05;
+                controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
+                controls.minDistance = 2;
+                controls.maxDistance = 10;
+                // Add a gentle auto rotation to catch the eye
+                controls.autoRotate = true;
+                controls.autoRotateSpeed = 1.0;
+
+                // Stop auto-rotate on user interaction
+                controls.addEventListener('start', () => {
+                    controls.autoRotate = false;
                 });
 
-                stage.addEventListener("pointerleave", () => {
-                    cube.style.transform = "rotateX(-12deg) rotateY(-16deg)";
+                // --- Build Room & Furniture ---
+                const group = new THREE.Group();
+                scene.add(group);
+
+                // Colors from our palette
+                const cFloor = 0xc5a784;
+                const cWall = 0xfaf1e6;
+                const cSofa = 0x8f9e83;
+                const cTable = 0xb37456;
+                const cShelf = 0x705a46;
+                const cArt = 0xbb6f4b; // terracotta
+
+                // Floor
+                const floorGeo = new THREE.PlaneGeometry(5, 4);
+                const floorMat = new THREE.MeshStandardMaterial({ color: cFloor, roughness: 0.8 });
+                const floor = new THREE.Mesh(floorGeo, floorMat);
+                floor.rotation.x = -Math.PI / 2;
+                floor.receiveShadow = true;
+                group.add(floor);
+
+                // Back Wall
+                const backWallGeo = new THREE.PlaneGeometry(5, 2.5);
+                const wallMat = new THREE.MeshStandardMaterial({ color: cWall, roughness: 0.9 });
+                const backWall = new THREE.Mesh(backWallGeo, wallMat);
+                backWall.position.set(0, 1.25, -2);
+                backWall.receiveShadow = true;
+                group.add(backWall);
+
+                // Left Wall
+                const leftWallGeo = new THREE.PlaneGeometry(4, 2.5);
+                const leftWall = new THREE.Mesh(leftWallGeo, wallMat);
+                leftWall.rotation.y = Math.PI / 2;
+                leftWall.position.set(-2.5, 1.25, 0);
+                leftWall.receiveShadow = true;
+                group.add(leftWall);
+
+                // Sofa
+                const sofaMat = new THREE.MeshStandardMaterial({ color: cSofa, roughness: 0.7 });
+                const sofaBaseGeo = new THREE.BoxGeometry(2, 0.4, 0.9);
+                const sofaBase = new THREE.Mesh(sofaBaseGeo, sofaMat);
+                sofaBase.position.set(-1, 0.2, -1.2);
+                sofaBase.castShadow = true;
+                group.add(sofaBase);
+
+                const sofaBackGeo = new THREE.BoxGeometry(2, 0.7, 0.2);
+                const sofaBack = new THREE.Mesh(sofaBackGeo, sofaMat);
+                sofaBack.position.set(-1, 0.75, -1.55);
+                sofaBack.castShadow = true;
+                group.add(sofaBack);
+
+                const sofaArmGeo = new THREE.BoxGeometry(0.2, 0.6, 0.9);
+                const armL = new THREE.Mesh(sofaArmGeo, sofaMat);
+                armL.position.set(-1.9, 0.5, -1.2);
+                armL.castShadow = true;
+                group.add(armL);
+
+                const armR = new THREE.Mesh(sofaArmGeo, sofaMat);
+                armR.position.set(-0.1, 0.5, -1.2);
+                armR.castShadow = true;
+                group.add(armR);
+
+                // Coffee Table
+                const tableMat = new THREE.MeshStandardMaterial({ color: cTable, roughness: 0.6 });
+                const tableTopGeo = new THREE.BoxGeometry(1.2, 0.05, 0.7);
+                const tableTop = new THREE.Mesh(tableTopGeo, tableMat);
+                tableTop.position.set(-1, 0.4, -0.3);
+                tableTop.castShadow = true;
+                group.add(tableTop);
+
+                const legGeo = new THREE.BoxGeometry(0.05, 0.35, 0.05);
+                const legPositions = [
+                    [-1.5, 0.2, -0.6], [-0.5, 0.2, -0.6],
+                    [-1.5, 0.2, 0], [-0.5, 0.2, 0]
+                ];
+                legPositions.forEach(pos => {
+                    const leg = new THREE.Mesh(legGeo, tableMat);
+                    leg.position.set(...pos);
+                    leg.castShadow = true;
+                    group.add(leg);
                 });
+
+                // Rug
+                const rugGeo = new THREE.PlaneGeometry(2.5, 1.8);
+                const rugMat = new THREE.MeshStandardMaterial({ color: 0xe8d5bd, roughness: 1.0 });
+                const rug = new THREE.Mesh(rugGeo, rugMat);
+                rug.rotation.x = -Math.PI / 2;
+                rug.position.set(-1, 0.01, -0.5);
+                rug.receiveShadow = true;
+                group.add(rug);
+
+                // Wall Art
+                const artGeo = new THREE.BoxGeometry(1, 1.2, 0.05);
+                const artMat = new THREE.MeshStandardMaterial({ color: cArt, roughness: 0.5 });
+                const art = new THREE.Mesh(artGeo, artMat);
+                art.position.set(-1, 1.5, -1.95);
+                group.add(art);
+
+                // Bookshelf
+                const shelfMat = new THREE.MeshStandardMaterial({ color: cShelf, roughness: 0.7 });
+                const shelfGeo = new THREE.BoxGeometry(0.8, 2.0, 0.4);
+                const shelf = new THREE.Mesh(shelfGeo, shelfMat);
+                shelf.position.set(1.5, 1.0, -1.7);
+                shelf.castShadow = true;
+                group.add(shelf);
+
+                // Center group a bit
+                group.position.y = -0.5;
+
+                // Handle resize
+                window.addEventListener('resize', () => {
+                    if (!container) return;
+                    const w = container.clientWidth;
+                    const h = container.clientHeight;
+                    renderer.setSize(w, h);
+                    camera.aspect = w / h;
+                    camera.updateProjectionMatrix();
+                });
+
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update(); // required if damping enabled
+                    renderer.render(scene, camera);
+                }
+                animate();
             }
         </script>
     </body>
@@ -186,6 +328,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         --ink-soft: #5a4f43;
         --terracotta: #bb6f4b;
         --forest: #5f7254;
+        --soft-blue: #a3c2cf;
+        --deep-blue: #4a6878;
         --card: #fff9f1;
         --line: #e5d2bd;
     }
@@ -203,7 +347,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         background:
             radial-gradient(
                 circle at 80% 20%,
-                rgba(187, 111, 75, 0.18),
+                rgba(163, 194, 207, 0.3),
                 transparent 48%
             ),
             radial-gradient(
@@ -219,7 +363,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         margin: 0;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: var(--forest);
+        color: var(--deep-blue);
         font-weight: 700;
         font-size: 0.82rem;
     }
@@ -386,46 +530,68 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         transform: translate3d(172px, 54px, -40px);
     }
 
-    .feature-grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+    .features-section {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        margin: 2rem 0;
     }
 
-    .feature-card {
+    .feature-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
         background: var(--card);
         border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: 0 8px 16px rgba(88, 63, 40, 0.06);
-        animation: rise-in 700ms ease both;
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 12px 24px rgba(88, 63, 40, 0.05);
     }
 
-    .feature-card p {
+    .feature-block.block-reverse {
+        /* On desktop we can visually swap the column order */
+    }
+
+    @media (min-width: 821px) {
+        .feature-block.block-reverse .feature-content {
+            order: 2;
+        }
+        .feature-block.block-reverse .feature-visual {
+            order: 1;
+        }
+    }
+
+    .feature-content h3 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        color: var(--ink);
+        line-height: 1.15;
+    }
+
+    .feature-content p {
         color: var(--ink-soft);
-        margin: 0;
-        font-size: 0.95rem;
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
     }
 
-    .feature-card h3 {
-        margin: 0 0 0.6rem;
-        font-size: 1.22rem;
+    .placeholder-visual {
+        background: linear-gradient(135deg, var(--soft-blue), var(--bg-sand));
+        border-radius: 16px;
+        height: 300px;
+        display: grid;
+        place-items: center;
+        border: 2px dashed rgba(45, 38, 31, 0.15);
     }
 
-    .feature-card:nth-child(2) {
-        animation-delay: 80ms;
-    }
-
-    .feature-card:nth-child(3) {
-        animation-delay: 140ms;
-    }
-
-    .feature-card:nth-child(4) {
-        animation-delay: 210ms;
-    }
-
-    .feature-card:nth-child(5) {
-        animation-delay: 280ms;
+    .visual-badge {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 0.8rem 1.5rem;
+        border-radius: 999px;
+        font-weight: 700;
+        color: var(--deep-blue);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .partner-strip {
@@ -505,12 +671,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         }
     }
 
-    @media (max-width: 1000px) {
-        .feature-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
     @media (max-width: 820px) {
         .landing-main {
             width: min(1120px, calc(100% - 1rem));
@@ -523,19 +683,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         .hero-section {
             padding: 2rem;
         }
+
+        .feature-block {
+            grid-template-columns: 1fr;
+            padding: 1.5rem;
+            gap: 2rem;
+        }
     }
 
     @media (max-width: 580px) {
-        .feature-grid {
-            grid-template-columns: 1fr;
-        }
-
         .room-stage {
             height: 290px;
-        }
-
-        .room-cube {
-            transform: rotateX(-8deg) rotateY(-12deg) scale(0.9);
         }
 
         .newsletter-form input {
@@ -556,6 +714,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         --ink-soft: #5a4f43;
         --terracotta: #bb6f4b;
         --forest: #5f7254;
+        --soft-blue: #a3c2cf;
+        --deep-blue: #4a6878;
         --card: #fff9f1;
         --line: #e5d2bd;
     }

@@ -145,33 +145,54 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         <script>
             import * as THREE from 'three';
             import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+            import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+            import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
             const container = document.getElementById('three-container');
 
             if (container) {
                 const scene = new THREE.Scene();
-                // We'll give the scene a soft, transparent background to blend with CSS
-                // We do this by setting alpha: true on renderer
 
-                // Add soft lighting
-                const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+                // Load Environment Map for Photorealistic Reflections
+                new RGBELoader()
+                    .load('/models/venice_sunset_1k.hdr', function (texture) {
+                        texture.mapping = THREE.EquirectangularReflectionMapping;
+                        scene.environment = texture;
+                        // scene.background = texture; // Optional: show HDRI as background
+                    });
+
+                // Add soft, photorealistic lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Reduced because of HDRI
                 scene.add(ambientLight);
 
-                const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-                dirLight.position.set(5, 10, 7);
+                const dirLight = new THREE.DirectionalLight(0xfff5e6, 2.0); // Warmer, stronger light
+                dirLight.position.set(5, 8, 5);
                 dirLight.castShadow = true;
+                dirLight.shadow.mapSize.width = 2048;
+                dirLight.shadow.mapSize.height = 2048;
+                dirLight.shadow.camera.near = 0.5;
+                dirLight.shadow.camera.far = 50;
+                dirLight.shadow.bias = -0.001;
                 scene.add(dirLight);
+
+                const fillLight = new THREE.DirectionalLight(0xaaccff, 0.5); // Cool fill light
+                fillLight.position.set(-5, 3, -5);
+                scene.add(fillLight);
 
                 // Setup camera
                 const width = container.clientWidth;
                 const height = container.clientHeight;
                 const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-                camera.position.set(4, 3, 5);
+                camera.position.set(3, 2.5, 4);
 
                 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setSize(width, height);
                 renderer.setPixelRatio(window.devicePixelRatio);
                 renderer.shadowMap.enabled = true;
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                renderer.toneMapping = THREE.ACESFilmicToneMapping;
+                renderer.toneMappingExposure = 1.0;
+                renderer.outputColorSpace = THREE.SRGBColorSpace;
                 container.appendChild(renderer.domElement);
 
                 // Controls
@@ -179,124 +200,74 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 controls.enableDamping = true;
                 controls.dampingFactor = 0.05;
                 controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
-                controls.minDistance = 2;
+                controls.minDistance = 1;
                 controls.maxDistance = 10;
-                // Add a gentle auto rotation to catch the eye
                 controls.autoRotate = true;
-                controls.autoRotateSpeed = 1.0;
+                controls.autoRotateSpeed = 0.5;
 
-                // Stop auto-rotate on user interaction
                 controls.addEventListener('start', () => {
                     controls.autoRotate = false;
                 });
 
-                // --- Build Room & Furniture ---
                 const group = new THREE.Group();
                 scene.add(group);
 
-                // Colors from our palette
-                const cFloor = 0xc5a784;
-                const cWall = 0xfaf1e6;
-                const cSofa = 0x8f9e83;
-                const cTable = 0xb37456;
-                const cShelf = 0x705a46;
-                const cArt = 0xbb6f4b; // terracotta
-
-                // Floor
-                const floorGeo = new THREE.PlaneGeometry(5, 4);
-                const floorMat = new THREE.MeshStandardMaterial({ color: cFloor, roughness: 0.8 });
+                // Photorealistic Floor
+                const floorGeo = new THREE.PlaneGeometry(10, 10);
+                const floorMat = new THREE.MeshStandardMaterial({
+                    color: 0xffffff,
+                    roughness: 0.1,
+                    metalness: 0.1,
+                    transparent: true,
+                    opacity: 0.5
+                });
                 const floor = new THREE.Mesh(floorGeo, floorMat);
                 floor.rotation.x = -Math.PI / 2;
+                floor.position.y = -0.5;
                 floor.receiveShadow = true;
                 group.add(floor);
 
-                // Back Wall
-                const backWallGeo = new THREE.PlaneGeometry(5, 2.5);
-                const wallMat = new THREE.MeshStandardMaterial({ color: cWall, roughness: 0.9 });
-                const backWall = new THREE.Mesh(backWallGeo, wallMat);
-                backWall.position.set(0, 1.25, -2);
-                backWall.receiveShadow = true;
-                group.add(backWall);
+                // Load Photorealistic GLTF Model
+                const loader = new GLTFLoader();
+                loader.load('/models/chair.glb', (gltf) => {
+                    const model = gltf.scene;
 
-                // Left Wall
-                const leftWallGeo = new THREE.PlaneGeometry(4, 2.5);
-                const leftWall = new THREE.Mesh(leftWallGeo, wallMat);
-                leftWall.rotation.y = Math.PI / 2;
-                leftWall.position.set(-2.5, 1.25, 0);
-                leftWall.receiveShadow = true;
-                group.add(leftWall);
+                    // Center and scale model
+                    const box = new THREE.Box3().setFromObject(model);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3());
 
-                // Sofa
-                const sofaMat = new THREE.MeshStandardMaterial({ color: cSofa, roughness: 0.7 });
-                const sofaBaseGeo = new THREE.BoxGeometry(2, 0.4, 0.9);
-                const sofaBase = new THREE.Mesh(sofaBaseGeo, sofaMat);
-                sofaBase.position.set(-1, 0.2, -1.2);
-                sofaBase.castShadow = true;
-                group.add(sofaBase);
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    const scale = 2.0 / maxDim;
+                    model.scale.set(scale, scale, scale);
 
-                const sofaBackGeo = new THREE.BoxGeometry(2, 0.7, 0.2);
-                const sofaBack = new THREE.Mesh(sofaBackGeo, sofaMat);
-                sofaBack.position.set(-1, 0.75, -1.55);
-                sofaBack.castShadow = true;
-                group.add(sofaBack);
+                    model.position.set(-center.x * scale, -center.y * scale - 0.5, -center.z * scale);
 
-                const sofaArmGeo = new THREE.BoxGeometry(0.2, 0.6, 0.9);
-                const armL = new THREE.Mesh(sofaArmGeo, sofaMat);
-                armL.position.set(-1.9, 0.5, -1.2);
-                armL.castShadow = true;
-                group.add(armL);
+                    // Enable shadows
+                    model.traverse((node) => {
+                        if (node.isMesh) {
+                            node.castShadow = true;
+                            node.receiveShadow = true;
+                        }
+                    });
 
-                const armR = new THREE.Mesh(sofaArmGeo, sofaMat);
-                armR.position.set(-0.1, 0.5, -1.2);
-                armR.castShadow = true;
-                group.add(armR);
-
-                // Coffee Table
-                const tableMat = new THREE.MeshStandardMaterial({ color: cTable, roughness: 0.6 });
-                const tableTopGeo = new THREE.BoxGeometry(1.2, 0.05, 0.7);
-                const tableTop = new THREE.Mesh(tableTopGeo, tableMat);
-                tableTop.position.set(-1, 0.4, -0.3);
-                tableTop.castShadow = true;
-                group.add(tableTop);
-
-                const legGeo = new THREE.BoxGeometry(0.05, 0.35, 0.05);
-                const legPositions = [
-                    [-1.5, 0.2, -0.6], [-0.5, 0.2, -0.6],
-                    [-1.5, 0.2, 0], [-0.5, 0.2, 0]
-                ];
-                legPositions.forEach(pos => {
-                    const leg = new THREE.Mesh(legGeo, tableMat);
-                    leg.position.set(...pos);
-                    leg.castShadow = true;
-                    group.add(leg);
+                    group.add(model);
+                }, undefined, (error) => {
+                    console.error('Error loading 3D model:', error);
                 });
 
-                // Rug
-                const rugGeo = new THREE.PlaneGeometry(2.5, 1.8);
-                const rugMat = new THREE.MeshStandardMaterial({ color: 0xe8d5bd, roughness: 1.0 });
-                const rug = new THREE.Mesh(rugGeo, rugMat);
-                rug.rotation.x = -Math.PI / 2;
-                rug.position.set(-1, 0.01, -0.5);
-                rug.receiveShadow = true;
-                group.add(rug);
+                // High-End Parallax & Float Interaction Setup
+                let mouseX = 0;
+                let mouseY = 0;
+                let targetX = 0;
+                let targetY = 0;
+                const windowHalfX = window.innerWidth / 2;
+                const windowHalfY = window.innerHeight / 2;
 
-                // Wall Art
-                const artGeo = new THREE.BoxGeometry(1, 1.2, 0.05);
-                const artMat = new THREE.MeshStandardMaterial({ color: cArt, roughness: 0.5 });
-                const art = new THREE.Mesh(artGeo, artMat);
-                art.position.set(-1, 1.5, -1.95);
-                group.add(art);
-
-                // Bookshelf
-                const shelfMat = new THREE.MeshStandardMaterial({ color: cShelf, roughness: 0.7 });
-                const shelfGeo = new THREE.BoxGeometry(0.8, 2.0, 0.4);
-                const shelf = new THREE.Mesh(shelfGeo, shelfMat);
-                shelf.position.set(1.5, 1.0, -1.7);
-                shelf.castShadow = true;
-                group.add(shelf);
-
-                // Center group a bit
-                group.position.y = -0.5;
+                document.addEventListener('mousemove', (event) => {
+                    mouseX = (event.clientX - windowHalfX);
+                    mouseY = (event.clientY - windowHalfY);
+                });
 
                 // Handle resize
                 window.addEventListener('resize', () => {
@@ -311,7 +282,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 // Animation loop
                 function animate() {
                     requestAnimationFrame(animate);
-                    controls.update(); // required if damping enabled
+
+                    // Immersive, slow parallax based on mouse
+                    targetX = mouseX * 0.0002;
+                    targetY = mouseY * 0.0002;
+
+                    group.rotation.x += 0.05 * (targetY - group.rotation.x);
+                    group.rotation.y += 0.05 * (targetX - group.rotation.y);
+
+                    // Smooth breathing/floating effect
+                    const time = Date.now() * 0.001;
+                    group.position.y = (Math.sin(time) * 0.05);
+
+                    // Subtle continuous rotation for that premium 3D showcase feel
+                    if (controls.autoRotate) {
+                        group.rotation.y += 0.001;
+                    }
+
+                    controls.update();
                     renderer.render(scene, camera);
                 }
                 animate();
@@ -746,267 +734,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
         .newsletter-form button {
             width: 100%;
-        }
-    }
-</style>
-
-<style>
-    :root {
-        --bg-cream: #fbf4ea;
-        --bg-sand: #f0e2cf;
-        --ink: #2d261f;
-        --ink-soft: #5a4f43;
-        --terracotta: #bb6f4b;
-        --forest: #5f7254;
-        --soft-blue: #a3c2cf;
-        --deep-blue: #4a6878;
-        --card: #fff9f1;
-        --line: #e5d2bd;
-    }
-
-    /* Keep your existing non-room styles here (landing-main, hero-section, buttons, etc.) */
-
-    /* --- 3D ROOM STAGE --- */
-    .room-stage {
-        height: 380px;
-        border-radius: 24px;
-        background:
-            radial-gradient(
-                circle at 20% 10%,
-                rgba(255, 255, 255, 0.8),
-                transparent 50%
-            ),
-            linear-gradient(160deg, #e8d5bd, #c4a98a);
-        border: 1px solid var(--line);
-        display: grid;
-        place-items: center;
-        perspective: 1000px;
-        overflow: hidden;
-    }
-
-    .room-cube {
-        width: 240px;
-        height: 140px;
-        position: relative;
-        transform-style: preserve-3d;
-        animation: floatRoom 14s infinite alternate ease-in-out;
-    }
-
-    @keyframes floatRoom {
-        0% {
-            transform: scale(1.1) rotateX(-10deg) rotateY(-20deg);
-        }
-        100% {
-            transform: scale(1.1) rotateX(-16deg) rotateY(-40deg);
-        }
-    }
-
-    /* --- ROOM WALLS --- */
-    .face {
-        position: absolute;
-        border: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .face-back {
-        width: 240px;
-        height: 140px;
-        background: linear-gradient(to bottom, #fbf4ea, #e4d1bd);
-        transform: translateZ(-160px);
-    }
-
-    .face-left {
-        width: 160px;
-        height: 140px;
-        background: linear-gradient(to right, #fbf4ea, #dac6b0);
-        transform-origin: left;
-        transform: rotateY(-90deg);
-    }
-
-    .face-floor {
-        width: 240px;
-        height: 160px;
-        top: 100%;
-        left: 0;
-        background: linear-gradient(to bottom, #d6b898, #af9274);
-        transform-origin: top;
-        transform: rotateX(-90deg);
-    }
-
-    /* --- 3D VOLUMETRIC BLOCKS --- */
-    .block-3d {
-        position: absolute;
-        transform-style: preserve-3d;
-        background: var(--bg-front);
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
-    }
-
-    /* Top Face */
-    .block-3d::before {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--depth, 20px);
-        background: var(--bg-top);
-        transform-origin: top;
-        transform: rotateX(90deg);
-    }
-
-    /* Right Face */
-    .block-3d::after {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 100%;
-        width: var(--depth, 20px);
-        height: 100%;
-        background: var(--bg-right);
-        transform-origin: left;
-        transform: rotateY(90deg);
-    }
-
-    /* --- MODELS & PLACEMENT --- */
-
-    /* 1. Rug */
-    .rug {
-        width: 130px;
-        height: 2px;
-        --depth: 80px;
-        --bg-front: #dac2a8;
-        --bg-top: #f0e2cf;
-        --bg-right: #c2a88d;
-        transform: translate3d(60px, 138px, -20px);
-    }
-
-    /* 2. Wall Art */
-    .art-frame {
-        width: 40px;
-        height: 50px;
-        --depth: 3px;
-        --bg-front: var(--ink);
-        --bg-top: #40372d;
-        --bg-right: #1a1612;
-        transform: translate3d(45px, 25px, -157px);
-    }
-    .art-canvas {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        background:
-            radial-gradient(
-                circle at 70% 30%,
-                var(--terracotta) 20%,
-                transparent 21%
-            ),
-            linear-gradient(
-                45deg,
-                transparent 40%,
-                var(--forest) 41%,
-                var(--forest) 60%,
-                transparent 61%
-            ),
-            var(--card);
-    }
-
-    /* 3. Floating Shelves */
-    .shelf-1 {
-        width: 45px;
-        height: 4px;
-        --depth: 16px;
-        --bg-front: #82664d;
-        --bg-top: #9c7b5d;
-        --bg-right: #5e4a38;
-        transform: translate3d(175px, 50px, -144px);
-    }
-    .shelf-2 {
-        width: 45px;
-        height: 4px;
-        --depth: 16px;
-        --bg-front: #82664d;
-        --bg-top: #9c7b5d;
-        --bg-right: #5e4a38;
-        transform: translate3d(175px, 80px, -144px);
-    }
-
-    /* 4. Sofa */
-    .sofa-base {
-        width: 90px;
-        height: 18px;
-        --depth: 40px;
-        --bg-front: #5f7254;
-        --bg-top: #758a68;
-        --bg-right: #4a5941;
-        transform: translate3d(20px, 122px, -120px);
-    }
-    .sofa-back {
-        width: 90px;
-        height: 35px;
-        --depth: 8px;
-        --bg-front: #667a5a;
-        --bg-top: #7c916e;
-        --bg-right: #516147;
-        transform: translate3d(20px, 87px, -152px);
-    }
-    .sofa-arm-l {
-        width: 12px;
-        height: 28px;
-        --depth: 40px;
-        --bg-front: #6b805e;
-        --bg-top: #829973;
-        --bg-right: #56664c;
-        transform: translate3d(20px, 112px, -120px);
-    }
-    .sofa-arm-r {
-        width: 12px;
-        height: 28px;
-        --depth: 40px;
-        --bg-front: #6b805e;
-        --bg-top: #829973;
-        --bg-right: #56664c;
-        transform: translate3d(98px, 112px, -120px);
-    }
-
-    /* 5. Coffee Table */
-    .table-base {
-        width: 25px;
-        height: 20px;
-        --depth: 20px;
-        --bg-front: #a46548;
-        --bg-top: #bd7959;
-        --bg-right: #875138;
-        transform: translate3d(132px, 120px, -70px);
-    }
-    .table-top {
-        width: 50px;
-        height: 5px;
-        --depth: 30px;
-        --bg-front: #bb6f4b;
-        --bg-top: #d4835d;
-        --bg-right: #9e5939;
-        transform: translate3d(120px, 115px, -65px);
-    }
-
-    /* --- MOBILE RESPONSIVENESS --- */
-    @media (max-width: 580px) {
-        .room-stage {
-            height: 320px;
-        }
-        .room-cube {
-            animation: floatRoomMobile 12s infinite alternate ease-in-out;
-        }
-    }
-
-    @keyframes floatRoomMobile {
-        0% {
-            transform: scale(0.9) rotateX(-8deg) rotateY(-15deg);
-        }
-        100% {
-            transform: scale(0.9) rotateX(-12deg) rotateY(-30deg);
         }
     }
 </style>

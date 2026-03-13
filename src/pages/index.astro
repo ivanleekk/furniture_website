@@ -15,9 +15,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         <main class="landing-main">
             <section class="hero-section">
                 <p class="eyebrow">
-                    Design your next home before moving a single chair
+                    Design your space, perfectly measured.
                 </p>
-                <h1>Scan your room. Place furniture. Shop smarter.</h1>
+                <h1>Scan, place, and plan your ideal home with augmented reality.</h1>
                 <p class="hero-copy">
                     A planning app that turns your space into an interactive
                     digital twin. Capture room dimensions, bring in your
@@ -26,102 +26,89 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 </p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="#waitlist"
-                        >Join the waitlist</a
-                    >
-                    <a class="btn btn-secondary" href="#how-it-works"
-                        >See how it works</a
+                        >Get Early Access & Updates</a
                     >
                 </div>
             </section>
 
             <section class="experience" aria-labelledby="experience-title">
-                <div>
+                <div class="experience-text">
                     <h2 id="experience-title">Feel how it works in 3D</h2>
                     <p>
-                        Drag your cursor on desktop or tilt your phone to
-                        preview how furniture placement can look from different
-                        angles.
+                        Drag your cursor on desktop or use touch on mobile to
+                        interact with the room and preview furniture placement.
                     </p>
                     <ul class="bullets">
                         <li>
-                            Room dimensions from floorplan scan or camera
-                            walk-through
+                            Accurate room dimensions from floorplan scan
                         </li>
                         <li>
-                            Virtual replicas of your real furniture for move-day
-                            planning
+                            Virtual replicas of your real furniture
                         </li>
                         <li>
-                            One inventory that follows you from apartment to
-                            forever home
+                            Seamlessly swap and place new pieces
                         </li>
                     </ul>
                 </div>
-                <div class="room-stage" id="roomStage">
-                    <div class="room-cube" id="roomCube" aria-hidden="true">
-                        <div class="face face-back"></div>
-                        <div class="face face-floor"></div>
-                        <div class="face face-left"></div>
-
-                        <div class="block-3d art-frame">
-                            <div class="art-canvas"></div>
-                        </div>
-
-                        <div class="block-3d rug"></div>
-
-                        <div class="block-3d shelf-1"></div>
-                        <div class="block-3d shelf-2"></div>
-
-                        <div class="block-3d sofa-base"></div>
-                        <div class="block-3d sofa-back"></div>
-                        <div class="block-3d sofa-arm-l"></div>
-                        <div class="block-3d sofa-arm-r"></div>
-
-                        <div class="block-3d table-base"></div>
-                        <div class="block-3d table-top"></div>
-                    </div>
+                <div class="room-stage" id="three-container">
+                    <!-- Three.js canvas will be injected here -->
                 </div>
             </section>
 
             <section
                 id="how-it-works"
-                class="feature-grid"
+                class="features-section"
                 aria-label="Product features"
             >
-                <article class="feature-card">
-                    <h3>Scan The Space</h3>
-                    <p>
-                        Upload a floorplan for instant dimensions or use your
-                        camera to physically scan rooms with guided anchors.
-                    </p>
+                <article class="feature-block block-reverse">
+                    <div class="feature-content">
+                        <h3>No more guessing. Accurate floorplans in seconds.</h3>
+                        <p>
+                            Eliminate the biggest source of error when buying furniture: inaccurate measurements. Upload a floorplan for instant dimensions or use your camera to physically scan rooms with guided anchors.
+                        </p>
+                        <ul class="bullets">
+                            <li>Detects walls, corners, doors, and windows</li>
+                            <li>Calculates accurate room dimensions automatically</li>
+                            <li>Generates a clean, to-scale digital floor plan</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual placeholder-visual">
+                        <div class="visual-badge">📸 Scanning Feature Demo Placeholder</div>
+                    </div>
                 </article>
-                <article class="feature-card">
-                    <h3>Scan Your Furniture</h3>
-                    <p>
-                        Turn your existing sofa, desk, and storage into movable
-                        virtual pieces so you can plan every layout option.
-                    </p>
+
+                <article class="feature-block">
+                    <div class="feature-content">
+                        <h3>Keep track of what you own, and what you need.</h3>
+                        <p>
+                            Turn your existing sofa, desk, and storage into movable virtual pieces. Save it to a personal virtual inventory that stays with you across sessions and moves.
+                        </p>
+                        <ul class="bullets">
+                            <li>Generate a 3D digital model of each piece</li>
+                            <li>Place, move, and rotate furniture in your digital room</li>
+                            <li>Maintain a move-ready inventory for future homes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual placeholder-visual">
+                        <div class="visual-badge">🛋️ Virtual Inventory Screen Mockup</div>
+                    </div>
                 </article>
-                <article class="feature-card">
-                    <h3>Inventory And Shortlists</h3>
-                    <p>
-                        Keep a move-ready inventory and maintain shopping
-                        shortlists while comparing fit, style, and budget.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Partner Catalog Mode</h3>
-                    <p>
-                        Browse partner catalogs like IKEA in digital form, place
-                        products in your own room, and validate scale instantly.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Render And AR Views</h3>
-                    <p>
-                        Switch between high-fidelity room renders and live AR
-                        overlays to decide with confidence before purchase.
-                    </p>
+
+                <article class="feature-block block-reverse">
+                    <div class="feature-content">
+                        <h3>See it before you buy it.</h3>
+                        <p>
+                            Seamlessly integrate the catalogs of major retailers. Browse furniture by style, drop products directly into your scanned room, and switch between high-fidelity renders and live AR overlays to validate scale instantly.
+                        </p>
+                        <ul class="bullets">
+                            <li>Check if new pieces match your walls and existing furniture</li>
+                            <li>View in AR by pointing your phone at the real room</li>
+                            <li>Shortlist items to a wishlist and purchase directly</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual placeholder-visual">
+                        <div class="visual-badge">📱 AR Shopping & Render Mockup</div>
+                    </div>
                 </article>
             </section>
 
@@ -135,11 +122,55 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 </div>
             </section>
 
+
+            <section class="testimonials-section" aria-labelledby="testimonials-title">
+                <h2 id="testimonials-title" class="section-title">Loved by early users</h2>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah J." class="avatar" loading="lazy" />
+                            <div class="author-info">
+                                <strong>Sarah J.</strong>
+                                <span>New Homeowner</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "I was so stressed about buying a couch that wouldn't fit through the door or match my walls. This app completely eliminated the guesswork. Being able to scan my living room and literally see the furniture there in AR is magic."
+                        </p>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?u=mark" alt="Mark D." class="avatar" loading="lazy" />
+                            <div class="author-info">
+                                <strong>Mark D.</strong>
+                                <span>Renter</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "I've moved three times in the last five years. Keeping a virtual inventory of my furniture means I know exactly what pieces will work in my new apartment before I even sign the lease. A total lifesaver."
+                        </p>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?u=emily" alt="Emily R." class="avatar" loading="lazy" />
+                            <div class="author-info">
+                                <strong>Emily R.</strong>
+                                <span>Interior Enthusiast</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "The floorplan scanning is unbelievably fast and accurate. It used to take me hours with a tape measure to mock up a room. Now I just pan my phone around and I have a perfect 3D canvas to play with."
+                        </p>
+                    </article>
+                </div>
+            </section>
+
             <section id="waitlist" class="cta" aria-labelledby="cta-title">
-                <h2 id="cta-title">Get early access to the beta</h2>
+                <h2 id="cta-title">Ready to start designing? Join our community.</h2>
                 <p>
-                    Sign up for product updates, preview invites, and launch
-                    offers for early users planning their next move.
+                    Sign up for product updates, beta invites, and exclusive home design tips.
                 </p>
                 <form class="newsletter-form">
                     <label for="email" class="sr-only">Email address</label>
@@ -150,29 +181,270 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                         placeholder="you@home.com"
                         required
                     />
-                    <button type="submit">Notify me</button>
+                    <button type="submit">Sign Up for Our Newsletter</button>
                 </form>
             </section>
         </main>
         <Footer />
 
         <script>
-            const stage = document.getElementById("roomStage");
-            const cube = document.getElementById("roomCube");
+            import * as THREE from 'three';
+            import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+            import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+            import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
-            if (stage && cube) {
-                stage.addEventListener("pointermove", (event) => {
-                    const rect = stage.getBoundingClientRect();
-                    const x = (event.clientX - rect.left) / rect.width - 0.5;
-                    const y = (event.clientY - rect.top) / rect.height - 0.5;
-                    const rotateY = x * 28;
-                    const rotateX = -y * 18;
-                    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            const container = document.getElementById('three-container');
+
+            if (container) {
+                const scene = new THREE.Scene();
+
+                // Load Environment Map for Photorealistic Reflections
+                new RGBELoader()
+                    .load('/models/venice_sunset_1k.hdr', function (texture) {
+                        texture.mapping = THREE.EquirectangularReflectionMapping;
+                        scene.environment = texture;
+                    });
+
+                // Add soft, photorealistic lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+                scene.add(ambientLight);
+
+                const dirLight = new THREE.DirectionalLight(0xfff5e6, 2.0);
+                dirLight.position.set(5, 8, 5);
+                dirLight.castShadow = true;
+                dirLight.shadow.mapSize.width = 2048;
+                dirLight.shadow.mapSize.height = 2048;
+                dirLight.shadow.camera.near = 0.5;
+                dirLight.shadow.camera.far = 50;
+                dirLight.shadow.bias = -0.001;
+                scene.add(dirLight);
+
+                const fillLight = new THREE.DirectionalLight(0xaaccff, 0.6);
+                fillLight.position.set(-5, 3, -5);
+                scene.add(fillLight);
+
+                // Setup camera
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+                camera.position.set(4, 3, 5);
+
+                const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.shadowMap.enabled = true;
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                renderer.toneMapping = THREE.ACESFilmicToneMapping;
+                renderer.toneMappingExposure = 1.0;
+                renderer.outputColorSpace = THREE.SRGBColorSpace;
+                container.appendChild(renderer.domElement);
+
+                // Controls
+                const controls = new OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.05;
+                controls.maxPolarAngle = Math.PI / 2 - 0.1;
+                controls.minDistance = 2;
+                controls.maxDistance = 15;
+                controls.target.set(0, 0.5, 0);
+
+                const group = new THREE.Group();
+                scene.add(group);
+
+                // Programmatic Room Creation
+                const wallMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xf4f0ec,
+                    roughness: 0.8,
+                    metalness: 0.1
                 });
 
-                stage.addEventListener("pointerleave", () => {
-                    cube.style.transform = "rotateX(-12deg) rotateY(-16deg)";
+                // Floor
+                const floorGeo = new THREE.PlaneGeometry(12, 12);
+                const floorMat = new THREE.MeshStandardMaterial({
+                    color: 0xdddddd,
+                    roughness: 0.2,
+                    metalness: 0.1,
+                    transparent: true,
+                    opacity: 0.7
                 });
+                const floor = new THREE.Mesh(floorGeo, floorMat);
+                floor.rotation.x = -Math.PI / 2;
+                floor.position.y = 0;
+                floor.receiveShadow = true;
+                group.add(floor);
+
+                // Back Wall
+                const backWallGeo = new THREE.BoxGeometry(8, 4, 0.2);
+                const backWall = new THREE.Mesh(backWallGeo, wallMaterial);
+                backWall.position.set(0, 2, -4);
+                backWall.receiveShadow = true;
+                backWall.castShadow = true;
+                group.add(backWall);
+
+                // Left Wall with Window Cutout
+                const leftWallShape = new THREE.Shape();
+                leftWallShape.moveTo(-4, 0);
+                leftWallShape.lineTo(4, 0);
+                leftWallShape.lineTo(4, 4);
+                leftWallShape.lineTo(-4, 4);
+                leftWallShape.lineTo(-4, 0);
+
+                // Window hole
+                const windowHole = new THREE.Path();
+                windowHole.moveTo(-1.5, 1);
+                windowHole.lineTo(1.5, 1);
+                windowHole.lineTo(1.5, 3);
+                windowHole.lineTo(-1.5, 3);
+                windowHole.lineTo(-1.5, 1);
+                leftWallShape.holes.push(windowHole);
+
+                const extrudeSettings = { depth: 0.2, bevelEnabled: false };
+                const leftWallGeo = new THREE.ExtrudeGeometry(leftWallShape, extrudeSettings);
+                const leftWall = new THREE.Mesh(leftWallGeo, wallMaterial);
+                leftWall.rotation.y = Math.PI / 2;
+                leftWall.position.set(-4, 0, 0);
+                leftWall.receiveShadow = true;
+                leftWall.castShadow = true;
+                group.add(leftWall);
+
+                // Window Glass
+                const glassGeo = new THREE.PlaneGeometry(3, 2);
+                const glassMat = new THREE.MeshPhysicalMaterial({
+                    color: 0xffffff,
+                    metalness: 0.1,
+                    roughness: 0.1,
+                    transmission: 0.9,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                const glass = new THREE.Mesh(glassGeo, glassMat);
+                glass.rotation.y = Math.PI / 2;
+                glass.position.set(-3.9, 2, 0);
+                group.add(glass);
+
+                // Window Frames
+                const frameMat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+                const frameGeoV = new THREE.BoxGeometry(0.05, 2, 0.05);
+                const frameGeoH = new THREE.BoxGeometry(0.05, 0.05, 3);
+
+                const frameV = new THREE.Mesh(frameGeoV, frameMat);
+                frameV.position.set(-3.9, 2, 0);
+                group.add(frameV);
+
+                const frameH = new THREE.Mesh(frameGeoH, frameMat);
+                frameH.position.set(-3.9, 2, 0);
+                group.add(frameH);
+
+                // Add Rug
+                const rugGeo = new THREE.PlaneGeometry(4, 5);
+                const rugMat = new THREE.MeshStandardMaterial({ color: 0x8aa8a8, roughness: 1.0 });
+                const rug = new THREE.Mesh(rugGeo, rugMat);
+                rug.rotation.x = -Math.PI / 2;
+                rug.position.set(0, 0.01, 0);
+                rug.receiveShadow = true;
+                group.add(rug);
+
+                // Load Photorealistic GLTF Model (Furniture)
+                const loader = new GLTFLoader();
+                loader.load('/models/chair.glb', (gltf) => {
+                    const originalModel = gltf.scene;
+
+                    // Center and scale original model
+                    const box = new THREE.Box3().setFromObject(originalModel);
+                    const size = box.getSize(new THREE.Vector3());
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    const scale = 1.5 / maxDim; // Adjust scale for the room
+
+                    originalModel.scale.set(scale, scale, scale);
+
+                    originalModel.traverse((node) => {
+                        if (node.isMesh) {
+                            node.castShadow = true;
+                            node.receiveShadow = true;
+                        }
+                    });
+
+                    // Chair 1
+                    const chair1 = originalModel.clone();
+                    chair1.position.set(-1, 0, 0.5);
+                    chair1.rotation.y = Math.PI / 4;
+                    group.add(chair1);
+
+                    // Chair 2
+                    const chair2 = originalModel.clone();
+                    chair2.position.set(1, 0, 0.5);
+                    chair2.rotation.y = -Math.PI / 4;
+                    group.add(chair2);
+
+                    // Simple Coffee Table programmatically
+                    const tableGeo = new THREE.CylinderGeometry(0.8, 0.8, 0.1, 32);
+                    const tableMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.2 });
+                    const tableTop = new THREE.Mesh(tableGeo, tableMat);
+                    tableTop.position.set(0, 0.6, -1);
+                    tableTop.castShadow = true;
+                    tableTop.receiveShadow = true;
+                    group.add(tableTop);
+
+                    const legGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.6, 8);
+                    const legMat = new THREE.MeshStandardMaterial({ color: 0x111111 });
+
+                    const leg1 = new THREE.Mesh(legGeo, legMat);
+                    leg1.position.set(0.5, 0.3, -0.5);
+                    leg1.castShadow = true;
+                    group.add(leg1);
+
+                    const leg2 = new THREE.Mesh(legGeo, legMat);
+                    leg2.position.set(-0.5, 0.3, -0.5);
+                    leg2.castShadow = true;
+                    group.add(leg2);
+
+                    const leg3 = new THREE.Mesh(legGeo, legMat);
+                    leg3.position.set(0, 0.3, -1.5);
+                    leg3.castShadow = true;
+                    group.add(leg3);
+
+                }, undefined, (error) => {
+                    console.error('Error loading 3D model:', error);
+                });
+
+                // Interaction Setup
+                let mouseX = 0;
+                let mouseY = 0;
+                let targetX = 0;
+                let targetY = 0;
+                const windowHalfX = window.innerWidth / 2;
+                const windowHalfY = window.innerHeight / 2;
+
+                document.addEventListener('mousemove', (event) => {
+                    mouseX = (event.clientX - windowHalfX);
+                    mouseY = (event.clientY - windowHalfY);
+                });
+
+                window.addEventListener('resize', () => {
+                    if (!container) return;
+                    const w = container.clientWidth;
+                    const h = container.clientHeight;
+                    renderer.setSize(w, h);
+                    camera.aspect = w / h;
+                    camera.updateProjectionMatrix();
+                });
+
+                // Offset the room down slightly so it sits nice in the frame
+                group.position.y = -1;
+
+                function animate() {
+                    requestAnimationFrame(animate);
+
+                    targetX = mouseX * 0.0001;
+                    targetY = mouseY * 0.0001;
+
+                    group.rotation.x += 0.05 * (targetY - group.rotation.x);
+                    group.rotation.y += 0.05 * (targetX - group.rotation.y);
+
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                animate();
             }
         </script>
     </body>
@@ -186,8 +458,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         --ink-soft: #5a4f43;
         --terracotta: #bb6f4b;
         --forest: #5f7254;
-        --card: #fff9f1;
-        --line: #e5d2bd;
+        --soft-blue: #a3c2cf;
+        --deep-blue: #4a6878;
+        --card: rgba(255, 249, 241, 0.6);
+        --line: rgba(229, 210, 189, 0.6);
+        --glass-bg: rgba(255, 255, 255, 0.4);
+        --glass-border: rgba(255, 255, 255, 0.5);
+    }
+
+    body {
+        background:
+            radial-gradient(circle at 10% 0%, rgba(163, 194, 207, 0.4), transparent 50%),
+            radial-gradient(circle at 90% 10%, rgba(187, 111, 75, 0.15), transparent 40%),
+            radial-gradient(circle at 50% 100%, rgba(95, 114, 84, 0.2), transparent 50%),
+            var(--bg-cream);
+        background-attachment: fixed;
     }
 
     .landing-main {
@@ -195,33 +480,46 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         padding: 2.5rem 0 4rem;
         display: grid;
         gap: 3rem;
+        position: relative;
+        z-index: 1;
     }
 
     .hero-section {
-        padding: 3rem;
-        border-radius: 28px;
-        background:
-            radial-gradient(
-                circle at 80% 20%,
-                rgba(187, 111, 75, 0.18),
-                transparent 48%
-            ),
-            radial-gradient(
-                circle at 10% 95%,
-                rgba(95, 114, 84, 0.2),
-                transparent 46%
-            ),
-            linear-gradient(130deg, var(--bg-cream), var(--bg-sand));
-        box-shadow: 0 14px 38px rgba(73, 56, 40, 0.1);
+        padding: 4rem 3rem;
+        border-radius: 32px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 24px 48px rgba(73, 56, 40, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: -50%; left: -50%;
+        width: 200%; height: 200%;
+        background: conic-gradient(from 0deg at 50% 50%, rgba(163,194,207,0.1) 0%, rgba(255,255,255,0) 25%, rgba(163,194,207,0.1) 50%, rgba(255,255,255,0) 75%, rgba(163,194,207,0.1) 100%);
+        animation: rotate 30s linear infinite;
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+    @keyframes rotate {
+        100% { transform: rotate(360deg); }
     }
 
     .eyebrow {
         margin: 0;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--forest);
-        font-weight: 700;
-        font-size: 0.82rem;
+        background: linear-gradient(90deg, var(--deep-blue), var(--terracotta));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-size: 0.85rem;
     }
 
     h1,
@@ -231,23 +529,28 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     h1 {
-        margin: 0.6rem 0 1rem;
+        margin: 0.8rem 0 1.2rem;
         max-width: 18ch;
-        font-size: clamp(2rem, 4.8vw, 3.8rem);
-        line-height: 1.05;
+        font-size: clamp(2.2rem, 5vw, 4.2rem);
+        line-height: 1.1;
         color: var(--ink);
+        background: linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .hero-copy {
         max-width: 64ch;
         color: var(--ink-soft);
-        margin-bottom: 1.4rem;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
     }
 
     .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
     .btn {
@@ -255,242 +558,279 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         align-items: center;
         justify-content: center;
         border-radius: 999px;
-        padding: 0.72rem 1.3rem;
+        padding: 0.8rem 1.6rem;
+        font-weight: 600;
         text-decoration: none;
         border: 1px solid transparent;
-        transition:
-            transform 160ms ease,
-            box-shadow 160ms ease;
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .btn:hover {
-        transform: translateY(-1px);
+        transform: translateY(-2px);
     }
 
     .btn-primary {
-        background: var(--terracotta);
+        background: linear-gradient(135deg, var(--terracotta), #d1815b);
         color: #fff;
-        box-shadow: 0 8px 20px rgba(187, 111, 75, 0.32);
+        box-shadow: 0 10px 24px rgba(187, 111, 75, 0.35), inset 0 1px 0 rgba(255,255,255,0.2);
     }
 
-    .btn-secondary {
-        border-color: var(--terracotta);
-        color: var(--terracotta);
-        background: #fffaf4;
+    .btn-primary:hover {
+        box-shadow: 0 14px 32px rgba(187, 111, 75, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
     }
 
     .experience {
         display: grid;
         grid-template-columns: 1.1fr 1fr;
         align-items: center;
-        gap: 2rem;
+        gap: 3rem;
+        margin: 2rem 0;
     }
 
     .experience p {
         color: var(--ink-soft);
+        font-size: 1.1rem;
+        line-height: 1.6;
     }
 
     .bullets {
-        margin: 1rem 0 0;
+        margin: 1.5rem 0 0;
         padding-left: 1.2rem;
         color: var(--ink);
     }
 
+    .bullets li {
+        margin-bottom: 0.5rem;
+    }
+
     .room-stage {
-        height: 340px;
-        border-radius: 24px;
-        background:
-            radial-gradient(
-                circle at 12% 8%,
-                rgba(255, 255, 255, 0.74),
-                transparent 42%
-            ),
-            linear-gradient(160deg, #e8d5bd, #cdb496);
-        border: 1px solid var(--line);
+        height: 400px;
+        border-radius: 32px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
         display: grid;
         place-items: center;
         perspective: 900px;
         overflow: hidden;
-    }
-
-    .room-cube {
-        width: 220px;
-        height: 190px;
-        transform-style: preserve-3d;
-        transform: rotateX(-12deg) rotateY(-16deg);
-        transition: transform 220ms ease;
         position: relative;
     }
 
-    .face {
+    .room-stage::after {
+        content: '';
         position: absolute;
-        border: 1px solid rgba(94, 74, 53, 0.3);
-        background: rgba(250, 241, 230, 0.8);
+        inset: 0;
+        background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(255,255,255,0.4) 100%);
+        pointer-events: none;
     }
 
-    .face-back {
-        width: 220px;
-        height: 130px;
-        transform: translateZ(-75px);
+    .features-section {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        margin: 3rem 0;
     }
 
-    .face-floor {
-        width: 220px;
-        height: 150px;
-        background: linear-gradient(30deg, #d6b898, #c5a784);
-        transform: rotateX(90deg) translateZ(-55px);
-        transform-origin: top;
-    }
-
-    .face-left,
-    .face-right {
-        width: 150px;
-        height: 130px;
-        background: rgba(245, 232, 216, 0.74);
-    }
-
-    .face-left {
-        transform: rotateY(90deg) translateZ(-75px);
-        transform-origin: left;
-    }
-
-    .face-right {
-        transform: rotateY(90deg) translateZ(145px);
-        transform-origin: left;
-    }
-
-    .furniture {
-        position: absolute;
-        border-radius: 8px;
-        box-shadow: 0 8px 20px rgba(57, 44, 33, 0.2);
-    }
-
-    .sofa {
-        width: 86px;
-        height: 40px;
-        background: #8f9e83;
-        transform: translate3d(30px, 86px, 25px);
-    }
-
-    .table {
-        width: 52px;
-        height: 30px;
-        background: #b37456;
-        transform: translate3d(120px, 90px, 32px);
-    }
-
-    .shelf {
-        width: 24px;
-        height: 76px;
-        background: #705a46;
-        transform: translate3d(172px, 54px, -40px);
-    }
-
-    .feature-grid {
+    .feature-block {
         display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: 32px;
+        padding: 3.5rem;
+        box-shadow: 0 16px 32px rgba(88, 63, 40, 0.05), inset 0 0 0 1px rgba(255,255,255,0.4);
+        transition: transform 300ms ease, box-shadow 300ms ease;
     }
 
-    .feature-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: 0 8px 16px rgba(88, 63, 40, 0.06);
-        animation: rise-in 700ms ease both;
+    .feature-block:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 48px rgba(88, 63, 40, 0.08), inset 0 0 0 1px rgba(255,255,255,0.5);
     }
 
-    .feature-card p {
+    .feature-block.block-reverse {
+        /* On desktop we can visually swap the column order */
+    }
+
+    @media (min-width: 821px) {
+        .feature-block.block-reverse .feature-content {
+            order: 2;
+        }
+        .feature-block.block-reverse .feature-visual {
+            order: 1;
+        }
+    }
+
+    .feature-content h3 {
+        margin: 0 0 1.2rem;
+        font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+        color: var(--ink);
+        line-height: 1.15;
+        background: linear-gradient(135deg, var(--ink) 0%, var(--deep-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .feature-content p {
         color: var(--ink-soft);
-        margin: 0;
-        font-size: 0.95rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
     }
 
-    .feature-card h3 {
-        margin: 0 0 0.6rem;
-        font-size: 1.22rem;
+    .placeholder-visual {
+        background: linear-gradient(135deg, rgba(163, 194, 207, 0.4), rgba(240, 226, 207, 0.4));
+        border-radius: 24px;
+        height: 340px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: inset 0 0 40px rgba(255,255,255,0.4), 0 10px 30px rgba(0,0,0,0.04);
+        position: relative;
+        overflow: hidden;
     }
 
-    .feature-card:nth-child(2) {
-        animation-delay: 80ms;
+    .placeholder-visual::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 100%);
+        pointer-events: none;
     }
 
-    .feature-card:nth-child(3) {
-        animation-delay: 140ms;
-    }
-
-    .feature-card:nth-child(4) {
-        animation-delay: 210ms;
-    }
-
-    .feature-card:nth-child(5) {
-        animation-delay: 280ms;
+    .visual-badge {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 0.8rem 1.8rem;
+        border-radius: 999px;
+        font-weight: 700;
+        color: var(--deep-blue);
+        box-shadow: 0 8px 24px rgba(74, 104, 120, 0.15);
+        border: 1px solid rgba(255,255,255,0.5);
+        z-index: 1;
     }
 
     .partner-strip {
-        border: 1px dashed #d9c4aa;
-        border-radius: 14px;
-        padding: 1rem;
-        background: #f9efe2;
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2rem;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+        text-align: center;
     }
 
     .partner-strip p {
-        margin: 0 0 0.5rem;
+        margin: 0 0 1rem;
         color: var(--ink-soft);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.85rem;
     }
 
     .partner-logos {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.7rem;
+        justify-content: center;
+        gap: 1.5rem;
     }
 
     .partner-logos span {
-        border: 1px solid #dcc4a8;
-        padding: 0.45rem 0.75rem;
+        border: 1px solid rgba(255,255,255,0.6);
+        padding: 0.6rem 1.2rem;
         border-radius: 999px;
-        background: #fff8ee;
+        background: rgba(255,255,255,0.5);
         font-weight: 700;
-        font-size: 0.88rem;
-        letter-spacing: 0.03em;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        letter-spacing: 0.05em;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
     .cta {
-        border-radius: 20px;
-        padding: 2rem;
-        background: linear-gradient(140deg, #586e4b, #476658);
+        border-radius: 32px;
+        padding: 4rem 3rem;
+        background: linear-gradient(140deg, var(--forest), #3c5449);
         color: #f8f4ec;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(71, 102, 88, 0.2);
+    }
+
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .cta h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
     }
 
     .cta p {
-        color: rgba(248, 244, 236, 0.94);
+        color: rgba(248, 244, 236, 0.9);
         max-width: 55ch;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
     }
 
     .newsletter-form {
         display: flex;
-        gap: 0.7rem;
+        gap: 0.8rem;
         flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
     }
 
     .newsletter-form input {
-        min-width: 250px;
+        min-width: 300px;
         flex: 1;
-        border: none;
+        border: 2px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.1);
+        color: #fff;
         border-radius: 999px;
-        padding: 0.75rem 1rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        transition: all 200ms ease;
+    }
+
+    .newsletter-form input::placeholder {
+        color: rgba(255,255,255,0.6);
+    }
+
+    .newsletter-form input:focus {
+        outline: none;
+        border-color: rgba(255,255,255,0.5);
+        background: rgba(255,255,255,0.15);
     }
 
     .newsletter-form button {
         border: none;
         border-radius: 999px;
-        padding: 0.75rem 1.2rem;
+        padding: 1rem 2rem;
         font-weight: 700;
+        font-size: 1rem;
         color: #fff;
-        background: var(--terracotta);
+        background: linear-gradient(135deg, var(--terracotta), #d1815b);
+        box-shadow: 0 8px 20px rgba(187, 111, 75, 0.4);
         cursor: pointer;
+        transition: all 200ms ease;
+    }
+
+    .newsletter-form button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(187, 111, 75, 0.5);
     }
 
     @keyframes rise-in {
@@ -502,12 +842,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         to {
             opacity: 1;
             transform: translateY(0);
-        }
-    }
-
-    @media (max-width: 1000px) {
-        .feature-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
 
@@ -523,19 +857,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         .hero-section {
             padding: 2rem;
         }
+
+        .feature-block {
+            grid-template-columns: 1fr;
+            padding: 1.5rem;
+            gap: 2rem;
+        }
     }
 
     @media (max-width: 580px) {
-        .feature-grid {
-            grid-template-columns: 1fr;
-        }
-
         .room-stage {
             height: 290px;
-        }
-
-        .room-cube {
-            transform: rotateX(-8deg) rotateY(-12deg) scale(0.9);
         }
 
         .newsletter-form input {
@@ -546,263 +878,97 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
             width: 100%;
         }
     }
-</style>
 
-<style>
-    :root {
-        --bg-cream: #fbf4ea;
-        --bg-sand: #f0e2cf;
-        --ink: #2d261f;
-        --ink-soft: #5a4f43;
-        --terracotta: #bb6f4b;
-        --forest: #5f7254;
-        --card: #fff9f1;
-        --line: #e5d2bd;
+    .testimonials-section {
+        margin: 5rem 0;
     }
 
-    /* Keep your existing non-room styles here (landing-main, hero-section, buttons, etc.) */
+    .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 3rem;
+        color: var(--ink);
+        background: linear-gradient(135deg, var(--ink) 0%, var(--deep-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-    /* --- 3D ROOM STAGE --- */
-    .room-stage {
-        height: 380px;
-        border-radius: 24px;
-        background:
-            radial-gradient(
-                circle at 20% 10%,
-                rgba(255, 255, 255, 0.8),
-                transparent 50%
-            ),
-            linear-gradient(160deg, #e8d5bd, #c4a98a);
-        border: 1px solid var(--line);
+    .testimonials-grid {
         display: grid;
-        place-items: center;
-        perspective: 1000px;
-        overflow: hidden;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
     }
 
-    .room-cube {
-        width: 240px;
-        height: 140px;
+    .testimonial-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 12px 32px rgba(88, 63, 40, 0.04), inset 0 0 0 1px rgba(255,255,255,0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transition: transform 300ms ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .author-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .author-info strong {
+        color: var(--ink);
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    .author-info span {
+        color: var(--terracotta);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .testimonial-text {
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        margin: 0;
         position: relative;
-        transform-style: preserve-3d;
-        animation: floatRoom 14s infinite alternate ease-in-out;
     }
 
-    @keyframes floatRoom {
-        0% {
-            transform: scale(1.1) rotateX(-10deg) rotateY(-20deg);
-        }
-        100% {
-            transform: scale(1.1) rotateX(-16deg) rotateY(-40deg);
-        }
-    }
-
-    /* --- ROOM WALLS --- */
-    .face {
+    .testimonial-text::before {
+        content: '"';
         position: absolute;
-        border: 1px solid rgba(0, 0, 0, 0.04);
+        top: -10px;
+        left: -15px;
+        font-size: 3rem;
+        color: rgba(187, 111, 75, 0.15);
+        font-family: serif;
+        pointer-events: none;
     }
 
-    .face-back {
-        width: 240px;
-        height: 140px;
-        background: linear-gradient(to bottom, #fbf4ea, #e4d1bd);
-        transform: translateZ(-160px);
-    }
-
-    .face-left {
-        width: 160px;
-        height: 140px;
-        background: linear-gradient(to right, #fbf4ea, #dac6b0);
-        transform-origin: left;
-        transform: rotateY(-90deg);
-    }
-
-    .face-floor {
-        width: 240px;
-        height: 160px;
-        top: 100%;
-        left: 0;
-        background: linear-gradient(to bottom, #d6b898, #af9274);
-        transform-origin: top;
-        transform: rotateX(-90deg);
-    }
-
-    /* --- 3D VOLUMETRIC BLOCKS --- */
-    .block-3d {
-        position: absolute;
-        transform-style: preserve-3d;
-        background: var(--bg-front);
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
-    }
-
-    /* Top Face */
-    .block-3d::before {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--depth, 20px);
-        background: var(--bg-top);
-        transform-origin: top;
-        transform: rotateX(90deg);
-    }
-
-    /* Right Face */
-    .block-3d::after {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 100%;
-        width: var(--depth, 20px);
-        height: 100%;
-        background: var(--bg-right);
-        transform-origin: left;
-        transform: rotateY(90deg);
-    }
-
-    /* --- MODELS & PLACEMENT --- */
-
-    /* 1. Rug */
-    .rug {
-        width: 130px;
-        height: 2px;
-        --depth: 80px;
-        --bg-front: #dac2a8;
-        --bg-top: #f0e2cf;
-        --bg-right: #c2a88d;
-        transform: translate3d(60px, 138px, -20px);
-    }
-
-    /* 2. Wall Art */
-    .art-frame {
-        width: 40px;
-        height: 50px;
-        --depth: 3px;
-        --bg-front: var(--ink);
-        --bg-top: #40372d;
-        --bg-right: #1a1612;
-        transform: translate3d(45px, 25px, -157px);
-    }
-    .art-canvas {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        background:
-            radial-gradient(
-                circle at 70% 30%,
-                var(--terracotta) 20%,
-                transparent 21%
-            ),
-            linear-gradient(
-                45deg,
-                transparent 40%,
-                var(--forest) 41%,
-                var(--forest) 60%,
-                transparent 61%
-            ),
-            var(--card);
-    }
-
-    /* 3. Floating Shelves */
-    .shelf-1 {
-        width: 45px;
-        height: 4px;
-        --depth: 16px;
-        --bg-front: #82664d;
-        --bg-top: #9c7b5d;
-        --bg-right: #5e4a38;
-        transform: translate3d(175px, 50px, -144px);
-    }
-    .shelf-2 {
-        width: 45px;
-        height: 4px;
-        --depth: 16px;
-        --bg-front: #82664d;
-        --bg-top: #9c7b5d;
-        --bg-right: #5e4a38;
-        transform: translate3d(175px, 80px, -144px);
-    }
-
-    /* 4. Sofa */
-    .sofa-base {
-        width: 90px;
-        height: 18px;
-        --depth: 40px;
-        --bg-front: #5f7254;
-        --bg-top: #758a68;
-        --bg-right: #4a5941;
-        transform: translate3d(20px, 122px, -120px);
-    }
-    .sofa-back {
-        width: 90px;
-        height: 35px;
-        --depth: 8px;
-        --bg-front: #667a5a;
-        --bg-top: #7c916e;
-        --bg-right: #516147;
-        transform: translate3d(20px, 87px, -152px);
-    }
-    .sofa-arm-l {
-        width: 12px;
-        height: 28px;
-        --depth: 40px;
-        --bg-front: #6b805e;
-        --bg-top: #829973;
-        --bg-right: #56664c;
-        transform: translate3d(20px, 112px, -120px);
-    }
-    .sofa-arm-r {
-        width: 12px;
-        height: 28px;
-        --depth: 40px;
-        --bg-front: #6b805e;
-        --bg-top: #829973;
-        --bg-right: #56664c;
-        transform: translate3d(98px, 112px, -120px);
-    }
-
-    /* 5. Coffee Table */
-    .table-base {
-        width: 25px;
-        height: 20px;
-        --depth: 20px;
-        --bg-front: #a46548;
-        --bg-top: #bd7959;
-        --bg-right: #875138;
-        transform: translate3d(132px, 120px, -70px);
-    }
-    .table-top {
-        width: 50px;
-        height: 5px;
-        --depth: 30px;
-        --bg-front: #bb6f4b;
-        --bg-top: #d4835d;
-        --bg-right: #9e5939;
-        transform: translate3d(120px, 115px, -65px);
-    }
-
-    /* --- MOBILE RESPONSIVENESS --- */
-    @media (max-width: 580px) {
-        .room-stage {
-            height: 320px;
-        }
-        .room-cube {
-            animation: floatRoomMobile 12s infinite alternate ease-in-out;
-        }
-    }
-
-    @keyframes floatRoomMobile {
-        0% {
-            transform: scale(0.9) rotateX(-8deg) rotateY(-15deg);
-        }
-        100% {
-            transform: scale(0.9) rotateX(-12deg) rotateY(-30deg);
-        }
-    }
 </style>

@@ -122,6 +122,51 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 </div>
             </section>
 
+
+            <section class="testimonials-section" aria-labelledby="testimonials-title">
+                <h2 id="testimonials-title" class="section-title">Loved by early users</h2>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah J." class="avatar" loading="lazy" />
+                            <div class="author-info">
+                                <strong>Sarah J.</strong>
+                                <span>New Homeowner</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "I was so stressed about buying a couch that wouldn't fit through the door or match my walls. This app completely eliminated the guesswork. Being able to scan my living room and literally see the furniture there in AR is magic."
+                        </p>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?u=mark" alt="Mark D." class="avatar" loading="lazy" />
+                            <div class="author-info">
+                                <strong>Mark D.</strong>
+                                <span>Renter</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "I've moved three times in the last five years. Keeping a virtual inventory of my furniture means I know exactly what pieces will work in my new apartment before I even sign the lease. A total lifesaver."
+                        </p>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://i.pravatar.cc/150?u=emily" alt="Emily R." class="avatar" loading="lazy" />
+                            <div class="author-info">
+                                <strong>Emily R.</strong>
+                                <span>Interior Enthusiast</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "The floorplan scanning is unbelievably fast and accurate. It used to take me hours with a tape measure to mock up a room. Now I just pan my phone around and I have a perfect 3D canvas to play with."
+                        </p>
+                    </article>
+                </div>
+            </section>
+
             <section id="waitlist" class="cta" aria-labelledby="cta-title">
                 <h2 id="cta-title">Ready to start designing? Join our community.</h2>
                 <p>
@@ -158,14 +203,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                     .load('/models/venice_sunset_1k.hdr', function (texture) {
                         texture.mapping = THREE.EquirectangularReflectionMapping;
                         scene.environment = texture;
-                        // scene.background = texture; // Optional: show HDRI as background
                     });
 
                 // Add soft, photorealistic lighting
-                const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Reduced because of HDRI
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
                 scene.add(ambientLight);
 
-                const dirLight = new THREE.DirectionalLight(0xfff5e6, 2.0); // Warmer, stronger light
+                const dirLight = new THREE.DirectionalLight(0xfff5e6, 2.0);
                 dirLight.position.set(5, 8, 5);
                 dirLight.castShadow = true;
                 dirLight.shadow.mapSize.width = 2048;
@@ -175,7 +219,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 dirLight.shadow.bias = -0.001;
                 scene.add(dirLight);
 
-                const fillLight = new THREE.DirectionalLight(0xaaccff, 0.5); // Cool fill light
+                const fillLight = new THREE.DirectionalLight(0xaaccff, 0.6);
                 fillLight.position.set(-5, 3, -5);
                 scene.add(fillLight);
 
@@ -183,7 +227,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 const width = container.clientWidth;
                 const height = container.clientHeight;
                 const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-                camera.position.set(3, 2.5, 4);
+                camera.position.set(4, 3, 5);
 
                 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setSize(width, height);
@@ -199,64 +243,171 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 const controls = new OrbitControls(camera, renderer.domElement);
                 controls.enableDamping = true;
                 controls.dampingFactor = 0.05;
-                controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
-                controls.minDistance = 1;
-                controls.maxDistance = 10;
-                controls.autoRotate = true;
-                controls.autoRotateSpeed = 0.5;
-
-                controls.addEventListener('start', () => {
-                    controls.autoRotate = false;
-                });
+                controls.maxPolarAngle = Math.PI / 2 - 0.1;
+                controls.minDistance = 2;
+                controls.maxDistance = 15;
+                controls.target.set(0, 0.5, 0);
 
                 const group = new THREE.Group();
                 scene.add(group);
 
-                // Photorealistic Floor
-                const floorGeo = new THREE.PlaneGeometry(10, 10);
+                // Programmatic Room Creation
+                const wallMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xf4f0ec,
+                    roughness: 0.8,
+                    metalness: 0.1
+                });
+
+                // Floor
+                const floorGeo = new THREE.PlaneGeometry(12, 12);
                 const floorMat = new THREE.MeshStandardMaterial({
-                    color: 0xffffff,
-                    roughness: 0.1,
+                    color: 0xdddddd,
+                    roughness: 0.2,
                     metalness: 0.1,
                     transparent: true,
-                    opacity: 0.5
+                    opacity: 0.7
                 });
                 const floor = new THREE.Mesh(floorGeo, floorMat);
                 floor.rotation.x = -Math.PI / 2;
-                floor.position.y = -0.5;
+                floor.position.y = 0;
                 floor.receiveShadow = true;
                 group.add(floor);
 
-                // Load Photorealistic GLTF Model
+                // Back Wall
+                const backWallGeo = new THREE.BoxGeometry(8, 4, 0.2);
+                const backWall = new THREE.Mesh(backWallGeo, wallMaterial);
+                backWall.position.set(0, 2, -4);
+                backWall.receiveShadow = true;
+                backWall.castShadow = true;
+                group.add(backWall);
+
+                // Left Wall with Window Cutout
+                const leftWallShape = new THREE.Shape();
+                leftWallShape.moveTo(-4, 0);
+                leftWallShape.lineTo(4, 0);
+                leftWallShape.lineTo(4, 4);
+                leftWallShape.lineTo(-4, 4);
+                leftWallShape.lineTo(-4, 0);
+
+                // Window hole
+                const windowHole = new THREE.Path();
+                windowHole.moveTo(-1.5, 1);
+                windowHole.lineTo(1.5, 1);
+                windowHole.lineTo(1.5, 3);
+                windowHole.lineTo(-1.5, 3);
+                windowHole.lineTo(-1.5, 1);
+                leftWallShape.holes.push(windowHole);
+
+                const extrudeSettings = { depth: 0.2, bevelEnabled: false };
+                const leftWallGeo = new THREE.ExtrudeGeometry(leftWallShape, extrudeSettings);
+                const leftWall = new THREE.Mesh(leftWallGeo, wallMaterial);
+                leftWall.rotation.y = Math.PI / 2;
+                leftWall.position.set(-4, 0, 0);
+                leftWall.receiveShadow = true;
+                leftWall.castShadow = true;
+                group.add(leftWall);
+
+                // Window Glass
+                const glassGeo = new THREE.PlaneGeometry(3, 2);
+                const glassMat = new THREE.MeshPhysicalMaterial({
+                    color: 0xffffff,
+                    metalness: 0.1,
+                    roughness: 0.1,
+                    transmission: 0.9,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                const glass = new THREE.Mesh(glassGeo, glassMat);
+                glass.rotation.y = Math.PI / 2;
+                glass.position.set(-3.9, 2, 0);
+                group.add(glass);
+
+                // Window Frames
+                const frameMat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+                const frameGeoV = new THREE.BoxGeometry(0.05, 2, 0.05);
+                const frameGeoH = new THREE.BoxGeometry(0.05, 0.05, 3);
+
+                const frameV = new THREE.Mesh(frameGeoV, frameMat);
+                frameV.position.set(-3.9, 2, 0);
+                group.add(frameV);
+
+                const frameH = new THREE.Mesh(frameGeoH, frameMat);
+                frameH.position.set(-3.9, 2, 0);
+                group.add(frameH);
+
+                // Add Rug
+                const rugGeo = new THREE.PlaneGeometry(4, 5);
+                const rugMat = new THREE.MeshStandardMaterial({ color: 0x8aa8a8, roughness: 1.0 });
+                const rug = new THREE.Mesh(rugGeo, rugMat);
+                rug.rotation.x = -Math.PI / 2;
+                rug.position.set(0, 0.01, 0);
+                rug.receiveShadow = true;
+                group.add(rug);
+
+                // Load Photorealistic GLTF Model (Furniture)
                 const loader = new GLTFLoader();
                 loader.load('/models/chair.glb', (gltf) => {
-                    const model = gltf.scene;
+                    const originalModel = gltf.scene;
 
-                    // Center and scale model
-                    const box = new THREE.Box3().setFromObject(model);
-                    const center = box.getCenter(new THREE.Vector3());
+                    // Center and scale original model
+                    const box = new THREE.Box3().setFromObject(originalModel);
                     const size = box.getSize(new THREE.Vector3());
-
                     const maxDim = Math.max(size.x, size.y, size.z);
-                    const scale = 2.0 / maxDim;
-                    model.scale.set(scale, scale, scale);
+                    const scale = 1.5 / maxDim; // Adjust scale for the room
 
-                    model.position.set(-center.x * scale, -center.y * scale - 0.5, -center.z * scale);
+                    originalModel.scale.set(scale, scale, scale);
 
-                    // Enable shadows
-                    model.traverse((node) => {
+                    originalModel.traverse((node) => {
                         if (node.isMesh) {
                             node.castShadow = true;
                             node.receiveShadow = true;
                         }
                     });
 
-                    group.add(model);
+                    // Chair 1
+                    const chair1 = originalModel.clone();
+                    chair1.position.set(-1, 0, 0.5);
+                    chair1.rotation.y = Math.PI / 4;
+                    group.add(chair1);
+
+                    // Chair 2
+                    const chair2 = originalModel.clone();
+                    chair2.position.set(1, 0, 0.5);
+                    chair2.rotation.y = -Math.PI / 4;
+                    group.add(chair2);
+
+                    // Simple Coffee Table programmatically
+                    const tableGeo = new THREE.CylinderGeometry(0.8, 0.8, 0.1, 32);
+                    const tableMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.2 });
+                    const tableTop = new THREE.Mesh(tableGeo, tableMat);
+                    tableTop.position.set(0, 0.6, -1);
+                    tableTop.castShadow = true;
+                    tableTop.receiveShadow = true;
+                    group.add(tableTop);
+
+                    const legGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.6, 8);
+                    const legMat = new THREE.MeshStandardMaterial({ color: 0x111111 });
+
+                    const leg1 = new THREE.Mesh(legGeo, legMat);
+                    leg1.position.set(0.5, 0.3, -0.5);
+                    leg1.castShadow = true;
+                    group.add(leg1);
+
+                    const leg2 = new THREE.Mesh(legGeo, legMat);
+                    leg2.position.set(-0.5, 0.3, -0.5);
+                    leg2.castShadow = true;
+                    group.add(leg2);
+
+                    const leg3 = new THREE.Mesh(legGeo, legMat);
+                    leg3.position.set(0, 0.3, -1.5);
+                    leg3.castShadow = true;
+                    group.add(leg3);
+
                 }, undefined, (error) => {
                     console.error('Error loading 3D model:', error);
                 });
 
-                // High-End Parallax & Float Interaction Setup
+                // Interaction Setup
                 let mouseX = 0;
                 let mouseY = 0;
                 let targetX = 0;
@@ -269,7 +420,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                     mouseY = (event.clientY - windowHalfY);
                 });
 
-                // Handle resize
                 window.addEventListener('resize', () => {
                     if (!container) return;
                     const w = container.clientWidth;
@@ -279,25 +429,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                     camera.updateProjectionMatrix();
                 });
 
-                // Animation loop
+                // Offset the room down slightly so it sits nice in the frame
+                group.position.y = -1;
+
                 function animate() {
                     requestAnimationFrame(animate);
 
-                    // Immersive, slow parallax based on mouse
-                    targetX = mouseX * 0.0002;
-                    targetY = mouseY * 0.0002;
+                    targetX = mouseX * 0.0001;
+                    targetY = mouseY * 0.0001;
 
                     group.rotation.x += 0.05 * (targetY - group.rotation.x);
                     group.rotation.y += 0.05 * (targetX - group.rotation.y);
-
-                    // Smooth breathing/floating effect
-                    const time = Date.now() * 0.001;
-                    group.position.y = (Math.sin(time) * 0.05);
-
-                    // Subtle continuous rotation for that premium 3D showcase feel
-                    if (controls.autoRotate) {
-                        group.rotation.y += 0.001;
-                    }
 
                     controls.update();
                     renderer.render(scene, camera);
@@ -736,4 +878,97 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
             width: 100%;
         }
     }
+
+    .testimonials-section {
+        margin: 5rem 0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 3rem;
+        color: var(--ink);
+        background: linear-gradient(135deg, var(--ink) 0%, var(--deep-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .testimonial-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 12px 32px rgba(88, 63, 40, 0.04), inset 0 0 0 1px rgba(255,255,255,0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transition: transform 300ms ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .author-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .author-info strong {
+        color: var(--ink);
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    .author-info span {
+        color: var(--terracotta);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .testimonial-text {
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        margin: 0;
+        position: relative;
+    }
+
+    .testimonial-text::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: -15px;
+        font-size: 3rem;
+        color: rgba(187, 111, 75, 0.15);
+        font-family: serif;
+        pointer-events: none;
+    }
+
 </style>

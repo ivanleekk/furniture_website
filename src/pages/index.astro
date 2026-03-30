@@ -12,169 +12,127 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     </head>
     <body>
         <Header />
-        <main class="landing-main">
+                <main class="landing-main">
             <section class="hero-section">
-                <p class="eyebrow">
-                    Design your next home before moving a single chair
-                </p>
-                <h1>Scan your room. Place furniture. Shop smarter.</h1>
-                <p class="hero-copy">
-                    A planning app that turns your space into an interactive
-                    digital twin. Capture room dimensions, bring in your
-                    existing furniture, test new pieces from partner catalogs,
-                    and view everything in render mode or AR before you commit.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="#waitlist"
-                        >Join the waitlist</a
-                    >
-                    <a class="btn btn-secondary" href="#how-it-works"
-                        >See how it works</a
-                    >
+                <div class="hero-content">
+                    <h1>Design your space, perfectly measured.</h1>
+                    <p class="hero-copy">
+                        Stop guessing, start visualizing. Scan your room, place your existing furniture, and shop for new pieces from top retailers—all in lifelike augmented reality.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#waitlist">Get Early Access & Updates</a>
+                    </div>
+                    <p class="microcopy">Join the waitlist to be the first to experience stress-free furnishing.</p>
+                </div>
+                <div class="hero-visual-placeholder">
+                    <p>[ Interactive 3D Animation / Looping Video Placeholder ]<br/>
+                    <a href="/experience" class="secondary-link">View 3D Interactive Room Demo</a>
+                    </p>
                 </div>
             </section>
 
-            <section class="experience" aria-labelledby="experience-title">
-                <div>
-                    <h2 id="experience-title">Feel how it works in 3D</h2>
-                    <p>
-                        Drag your cursor on desktop or tilt your phone to
-                        preview how furniture placement can look from different
-                        angles.
-                    </p>
-                    <ul class="bullets">
-                        <li>
-                            Room dimensions from floorplan scan or camera
-                            walk-through
-                        </li>
-                        <li>
-                            Virtual replicas of your real furniture for move-day
-                            planning
-                        </li>
-                        <li>
-                            One inventory that follows you from apartment to
-                            forever home
-                        </li>
-                    </ul>
+            <section class="hook-section" aria-labelledby="hook-title">
+                <h2 id="hook-title">Moving or renovating is stressful. Buying furniture shouldn't be.</h2>
+                <p>
+                    Whether you just got the keys to your new BTO, are moving into a new rental, or simply want to refresh your living room, we eliminate the tape-measure anxiety. Know exactly how your home will look and feel <em>before</em> you spend a single dollar.
+                </p>
+            </section>
+
+            <section class="feature-block">
+                <div class="feature-text">
+                    <h2>No more guessing. Accurate floorplans in seconds.</h2>
+                    <p>Leave the measuring tape in the toolbox. Simply use your phone's camera to scan your room. We instantly detect walls, doors, and windows to generate a precise, to-scale digital floorplan. It is the perfect blank canvas for your dream home.</p>
                 </div>
-                <div class="room-stage" id="roomStage">
-                    <div class="room-cube" id="roomCube" aria-hidden="true">
-                        <div class="face face-back"></div>
-                        <div class="face face-floor"></div>
-                        <div class="face face-left"></div>
+                <div class="feature-visual">
+                    <div class="placeholder-graphic">[ Blueprint Scan GIF Placeholder ]</div>
+                </div>
+            </section>
 
-                        <div class="block-3d art-frame">
-                            <div class="art-canvas"></div>
-                        </div>
-
-                        <div class="block-3d rug"></div>
-
-                        <div class="block-3d shelf-1"></div>
-                        <div class="block-3d shelf-2"></div>
-
-                        <div class="block-3d sofa-base"></div>
-                        <div class="block-3d sofa-back"></div>
-                        <div class="block-3d sofa-arm-l"></div>
-                        <div class="block-3d sofa-arm-r"></div>
-
-                        <div class="block-3d table-base"></div>
-                        <div class="block-3d table-top"></div>
+            <section class="feature-block reverse">
+                <div class="feature-text">
+                    <h2>Keep what you love. Plan around what you own.</h2>
+                    <p>Bringing your current sofa or favorite dining table to your new place? Scan your existing furniture to create a "Virtual Inventory" of 3D models. Drop them into your new floorplan to see exactly where they fit. When you move, your digital furniture moves with you.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="placeholder-split">
+                        <div class="split-half">[ Real Photo ]</div>
+                        <div class="split-half">[ 3D Model ]</div>
                     </div>
                 </div>
             </section>
 
-            <section
-                id="how-it-works"
-                class="feature-grid"
-                aria-label="Product features"
-            >
-                <article class="feature-card">
-                    <h3>Scan The Space</h3>
-                    <p>
-                        Upload a floorplan for instant dimensions or use your
-                        camera to physically scan rooms with guided anchors.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Scan Your Furniture</h3>
-                    <p>
-                        Turn your existing sofa, desk, and storage into movable
-                        virtual pieces so you can plan every layout option.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Inventory And Shortlists</h3>
-                    <p>
-                        Keep a move-ready inventory and maintain shopping
-                        shortlists while comparing fit, style, and budget.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Partner Catalog Mode</h3>
-                    <p>
-                        Browse partner catalogs like IKEA in digital form, place
-                        products in your own room, and validate scale instantly.
-                    </p>
-                </article>
-                <article class="feature-card">
-                    <h3>Render And AR Views</h3>
-                    <p>
-                        Switch between high-fidelity room renders and live AR
-                        overlays to decide with confidence before purchase.
-                    </p>
-                </article>
-            </section>
-
-            <section class="partner-strip" aria-label="Partner examples">
-                <p>Planned retail integrations</p>
-                <div class="partner-logos">
-                    <span>IKEA</span>
-                    <span>West Elm</span>
-                    <span>Muji</span>
-                    <span>Herman Miller</span>
+            <section class="feature-block">
+                <div class="feature-text">
+                    <h2>See it before you buy it.</h2>
+                    <p>Browse our integrated catalog of top furniture retailers. Drop any product directly into your digital room to check the fit, or use AR to project it live into your physical space. Does it match the walls? Does it fit next to your old coffee table? Now you'll know for sure. Once it's perfect, buy it straight from the app.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="placeholder-graphic">[ AR View Placeholder ]</div>
                 </div>
             </section>
 
-            <section id="waitlist" class="cta" aria-labelledby="cta-title">
-                <h2 id="cta-title">Get early access to the beta</h2>
-                <p>
-                    Sign up for product updates, preview invites, and launch
-                    offers for early users planning their next move.
-                </p>
-                <form class="newsletter-form">
-                    <label for="email" class="sr-only">Email address</label>
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        placeholder="you@home.com"
-                        required
-                    />
-                    <button type="submit">Notify me</button>
-                </form>
+            <section class="how-it-works">
+                <h2>From Empty Space to Dream Home in 3 Steps</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">[ Icon ]</div>
+                        <h3>Step 1: Scan Your Space.</h3>
+                        <p>Open the app and pan your camera. Get a 3D, measured floorplan instantly.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">[ Icon ]</div>
+                        <h3>Step 2: Bring Your Stuff.</h3>
+                        <p>Snap a photo of the furniture you're keeping. Watch it turn into a 3D model you can place in your new room.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">[ Icon ]</div>
+                        <h3>Step 3: Shop & Complete.</h3>
+                        <p>Browse retailer catalogs, test new pieces in Augmented Reality, and buy with total confidence.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="personas-section">
+                <div class="persona-card">
+                    <div class="persona-visual">[ Lifestyle Image: Empty Apartment ]</div>
+                    <div class="persona-text">
+                        <h3>For New Homeowners:</h3>
+                        <p>Plan your BTO, condo, or house perfectly before the keys even arrive. Prevent costly contractor miscommunications and share your vision clearly.</p>
+                    </div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-visual">[ Lifestyle Image: Furnished Room ]</div>
+                    <div class="persona-text">
+                        <h3>For Renters & Upgraders:</h3>
+                        <p>Effortlessly test out new styles and layouts without the heavy lifting. Find pieces that perfectly match the furniture you already own.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="waitlist" class="cta final-cta">
+                <div class="cta-content">
+                    <h2>Ready to design your space the smart way?</h2>
+                    <p>
+                        We are building the ultimate tool to make home furnishing accurate, easy, and fun. Join our community today to get exclusive launch updates, beta invites, and early access to our virtual design tools.
+                    </p>
+                    <form class="newsletter-form">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                        />
+                        <button type="submit">Sign Up for Our Newsletter</button>
+                    </form>
+                    <p class="microcopy">No spam. Just updates on how to build your dream home.</p>
+                </div>
             </section>
         </main>
         <Footer />
 
-        <script>
-            const stage = document.getElementById("roomStage");
-            const cube = document.getElementById("roomCube");
 
-            if (stage && cube) {
-                stage.addEventListener("pointermove", (event) => {
-                    const rect = stage.getBoundingClientRect();
-                    const x = (event.clientX - rect.left) / rect.width - 0.5;
-                    const y = (event.clientY - rect.top) / rect.height - 0.5;
-                    const rotateY = x * 28;
-                    const rotateX = -y * 18;
-                    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-
-                stage.addEventListener("pointerleave", () => {
-                    cube.style.transform = "rotateX(-12deg) rotateY(-16deg)";
-                });
-            }
-        </script>
     </body>
 </html>
 
@@ -188,356 +146,352 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         --forest: #5f7254;
         --card: #fff9f1;
         --line: #e5d2bd;
+        --navy-btn: #3a4b63; /* Muted navy blue */
+    }
+
+    body {
+        font-family: 'Poppins', 'Inter', sans-serif;
     }
 
     .landing-main {
         width: min(1120px, calc(100% - 2rem));
         padding: 2.5rem 0 4rem;
         display: grid;
-        gap: 3rem;
+        gap: 5rem;
+        margin: 0 auto;
     }
 
-    .hero-section {
-        padding: 3rem;
-        border-radius: 28px;
-        background:
-            radial-gradient(
-                circle at 80% 20%,
-                rgba(187, 111, 75, 0.18),
-                transparent 48%
-            ),
-            radial-gradient(
-                circle at 10% 95%,
-                rgba(95, 114, 84, 0.2),
-                transparent 46%
-            ),
-            linear-gradient(130deg, var(--bg-cream), var(--bg-sand));
-        box-shadow: 0 14px 38px rgba(73, 56, 40, 0.1);
-    }
-
-    .eyebrow {
-        margin: 0;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--forest);
-        font-weight: 700;
-        font-size: 0.82rem;
-    }
-
-    h1,
-    h2,
-    h3 {
+    /* Typography */
+    h1, h2, h3 {
         font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    }
-
-    h1 {
-        margin: 0.6rem 0 1rem;
-        max-width: 18ch;
-        font-size: clamp(2rem, 4.8vw, 3.8rem);
-        line-height: 1.05;
         color: var(--ink);
     }
 
-    .hero-copy {
-        max-width: 64ch;
+    p {
         color: var(--ink-soft);
-        margin-bottom: 1.4rem;
+        line-height: 1.6;
     }
 
-    .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-    }
-
+    /* Buttons */
     .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         border-radius: 999px;
-        padding: 0.72rem 1.3rem;
+        padding: 0.8rem 1.8rem;
         text-decoration: none;
         border: 1px solid transparent;
-        transition:
-            transform 160ms ease,
-            box-shadow 160ms ease;
+        font-weight: 600;
+        transition: transform 160ms ease, box-shadow 160ms ease;
     }
 
     .btn:hover {
-        transform: translateY(-1px);
+        transform: translateY(-2px);
     }
 
     .btn-primary {
-        background: var(--terracotta);
+        background: var(--navy-btn);
         color: #fff;
-        box-shadow: 0 8px 20px rgba(187, 111, 75, 0.32);
+        box-shadow: 0 8px 20px rgba(58, 75, 99, 0.32);
     }
 
-    .btn-secondary {
-        border-color: var(--terracotta);
-        color: var(--terracotta);
-        background: #fffaf4;
+    .microcopy {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        opacity: 0.8;
+        margin-top: 0.8rem;
     }
 
-    .experience {
+    /* Hero Section */
+    .hero-section {
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
         align-items: center;
+        padding: 4rem 3rem;
+        border-radius: 28px;
+        background: radial-gradient(circle at 80% 20%, rgba(187, 111, 75, 0.1), transparent 48%),
+                    linear-gradient(130deg, var(--bg-cream), var(--bg-sand));
+        box-shadow: 0 14px 38px rgba(73, 56, 40, 0.05);
+    }
+
+    .hero-section h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        line-height: 1.1;
+    }
+
+    .hero-copy {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-visual-placeholder {
+        background: rgba(255, 255, 255, 0.5);
+        border: 2px dashed var(--line);
+        border-radius: 16px;
+        height: 100%;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        color: var(--ink-soft);
+    }
+
+    .secondary-link {
+        margin-top: 1rem;
+        color: var(--terracotta);
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    /* Hook Section */
+    .hook-section {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hook-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hook-section p {
+        font-size: 1.2rem;
+    }
+
+    /* Feature Blocks */
+    .feature-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .feature-block.reverse {
+        direction: rtl;
+    }
+
+    .feature-block.reverse > * {
+        direction: ltr;
+    }
+
+    .feature-text h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-visual {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .placeholder-graphic {
+        color: var(--ink-soft);
+        font-style: italic;
+    }
+
+    .placeholder-split {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .split-half {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px dashed var(--line);
+        color: var(--ink-soft);
+        font-style: italic;
+    }
+    .split-half:last-child {
+        border-right: none;
+    }
+
+    /* How It Works */
+    .how-it-works {
+        text-align: center;
+        background: #fdfaf6;
+        padding: 4rem 2rem;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+    }
+
+    .how-it-works h2 {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 
-    .experience p {
-        color: var(--ink-soft);
+    .step-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(88, 63, 40, 0.04);
+        text-align: left;
     }
 
-    .bullets {
-        margin: 1rem 0 0;
-        padding-left: 1.2rem;
-        color: var(--ink);
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--bg-sand);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--forest);
+        font-weight: bold;
     }
 
-    .room-stage {
-        height: 340px;
-        border-radius: 24px;
-        background:
-            radial-gradient(
-                circle at 12% 8%,
-                rgba(255, 255, 255, 0.74),
-                transparent 42%
-            ),
-            linear-gradient(160deg, #e8d5bd, #cdb496);
-        border: 1px solid var(--line);
+    .step-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    /* Personas Section */
+    .personas-section {
         display: grid;
-        place-items: center;
-        perspective: 900px;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .persona-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
         overflow: hidden;
     }
 
-    .room-cube {
-        width: 220px;
-        height: 190px;
-        transform-style: preserve-3d;
-        transform: rotateX(-12deg) rotateY(-16deg);
-        transition: transform 220ms ease;
-        position: relative;
-    }
-
-    .face {
-        position: absolute;
-        border: 1px solid rgba(94, 74, 53, 0.3);
-        background: rgba(250, 241, 230, 0.8);
-    }
-
-    .face-back {
-        width: 220px;
-        height: 130px;
-        transform: translateZ(-75px);
-    }
-
-    .face-floor {
-        width: 220px;
-        height: 150px;
-        background: linear-gradient(30deg, #d6b898, #c5a784);
-        transform: rotateX(90deg) translateZ(-55px);
-        transform-origin: top;
-    }
-
-    .face-left,
-    .face-right {
-        width: 150px;
-        height: 130px;
-        background: rgba(245, 232, 216, 0.74);
-    }
-
-    .face-left {
-        transform: rotateY(90deg) translateZ(-75px);
-        transform-origin: left;
-    }
-
-    .face-right {
-        transform: rotateY(90deg) translateZ(145px);
-        transform-origin: left;
-    }
-
-    .furniture {
-        position: absolute;
-        border-radius: 8px;
-        box-shadow: 0 8px 20px rgba(57, 44, 33, 0.2);
-    }
-
-    .sofa {
-        width: 86px;
-        height: 40px;
-        background: #8f9e83;
-        transform: translate3d(30px, 86px, 25px);
-    }
-
-    .table {
-        width: 52px;
-        height: 30px;
-        background: #b37456;
-        transform: translate3d(120px, 90px, 32px);
-    }
-
-    .shelf {
-        width: 24px;
-        height: 76px;
-        background: #705a46;
-        transform: translate3d(172px, 54px, -40px);
-    }
-
-    .feature-grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-
-    .feature-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: 0 8px 16px rgba(88, 63, 40, 0.06);
-        animation: rise-in 700ms ease both;
-    }
-
-    .feature-card p {
-        color: var(--ink-soft);
-        margin: 0;
-        font-size: 0.95rem;
-    }
-
-    .feature-card h3 {
-        margin: 0 0 0.6rem;
-        font-size: 1.22rem;
-    }
-
-    .feature-card:nth-child(2) {
-        animation-delay: 80ms;
-    }
-
-    .feature-card:nth-child(3) {
-        animation-delay: 140ms;
-    }
-
-    .feature-card:nth-child(4) {
-        animation-delay: 210ms;
-    }
-
-    .feature-card:nth-child(5) {
-        animation-delay: 280ms;
-    }
-
-    .partner-strip {
-        border: 1px dashed #d9c4aa;
-        border-radius: 14px;
-        padding: 1rem;
-        background: #f9efe2;
-    }
-
-    .partner-strip p {
-        margin: 0 0 0.5rem;
-        color: var(--ink-soft);
-    }
-
-    .partner-logos {
+    .persona-visual {
+        height: 200px;
+        background: #e9decb;
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.7rem;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-soft);
+        font-style: italic;
     }
 
-    .partner-logos span {
-        border: 1px solid #dcc4a8;
-        padding: 0.45rem 0.75rem;
-        border-radius: 999px;
-        background: #fff8ee;
-        font-weight: 700;
-        font-size: 0.88rem;
-        letter-spacing: 0.03em;
-    }
-
-    .cta {
-        border-radius: 20px;
+    .persona-text {
         padding: 2rem;
-        background: linear-gradient(140deg, #586e4b, #476658);
-        color: #f8f4ec;
     }
 
-    .cta p {
-        color: rgba(248, 244, 236, 0.94);
-        max-width: 55ch;
+    .persona-text h3 {
+        font-size: 1.4rem;
         margin-bottom: 1rem;
+        color: var(--terracotta);
+    }
+
+    /* Final CTA */
+    .final-cta {
+        background: linear-gradient(140deg, #f2e1c9, #e9d1b0);
+        border-radius: 28px;
+        padding: 5rem 2rem;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(187, 111, 75, 0.1);
+    }
+
+    .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .final-cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--ink);
+    }
+
+    .final-cta p {
+        color: var(--ink-soft);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
     }
 
     .newsletter-form {
         display: flex;
-        gap: 0.7rem;
+        gap: 0.8rem;
+        justify-content: center;
         flex-wrap: wrap;
     }
 
     .newsletter-form input {
-        min-width: 250px;
+        min-width: 300px;
         flex: 1;
-        border: none;
+        border: 2px solid white;
         border-radius: 999px;
-        padding: 0.75rem 1rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--ink);
+    }
+
+    .newsletter-form input:focus {
+        outline: none;
+        border-color: var(--terracotta);
     }
 
     .newsletter-form button {
         border: none;
         border-radius: 999px;
-        padding: 0.75rem 1.2rem;
+        padding: 1rem 2rem;
         font-weight: 700;
+        font-size: 1rem;
         color: #fff;
-        background: var(--terracotta);
+        background: var(--navy-btn);
         cursor: pointer;
+        transition: transform 160ms ease, box-shadow 160ms ease;
     }
 
-    @keyframes rise-in {
-        from {
-            opacity: 0;
-            transform: translateY(14px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .newsletter-form button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(58, 75, 99, 0.32);
     }
 
-    @media (max-width: 1000px) {
-        .feature-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
-    @media (max-width: 820px) {
-        .landing-main {
-            width: min(1120px, calc(100% - 1rem));
-        }
-
-        .experience {
-            grid-template-columns: 1fr;
-        }
-
+    /* Responsive */
+    @media (max-width: 900px) {
         .hero-section {
-            padding: 2rem;
+            grid-template-columns: 1fr;
+            padding: 3rem 2rem;
         }
-    }
 
-    @media (max-width: 580px) {
-        .feature-grid {
+        .feature-block {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .feature-block.reverse {
+            direction: ltr;
+        }
+
+        .steps-grid {
             grid-template-columns: 1fr;
         }
 
-        .room-stage {
-            height: 290px;
+        .personas-section {
+            grid-template-columns: 1fr;
         }
+    }
 
-        .room-cube {
-            transform: rotateX(-8deg) rotateY(-12deg) scale(0.9);
-        }
-
+    @media (max-width: 600px) {
         .newsletter-form input {
             min-width: 100%;
         }
@@ -548,261 +502,3 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 </style>
 
-<style>
-    :root {
-        --bg-cream: #fbf4ea;
-        --bg-sand: #f0e2cf;
-        --ink: #2d261f;
-        --ink-soft: #5a4f43;
-        --terracotta: #bb6f4b;
-        --forest: #5f7254;
-        --card: #fff9f1;
-        --line: #e5d2bd;
-    }
-
-    /* Keep your existing non-room styles here (landing-main, hero-section, buttons, etc.) */
-
-    /* --- 3D ROOM STAGE --- */
-    .room-stage {
-        height: 380px;
-        border-radius: 24px;
-        background:
-            radial-gradient(
-                circle at 20% 10%,
-                rgba(255, 255, 255, 0.8),
-                transparent 50%
-            ),
-            linear-gradient(160deg, #e8d5bd, #c4a98a);
-        border: 1px solid var(--line);
-        display: grid;
-        place-items: center;
-        perspective: 1000px;
-        overflow: hidden;
-    }
-
-    .room-cube {
-        width: 240px;
-        height: 140px;
-        position: relative;
-        transform-style: preserve-3d;
-        animation: floatRoom 14s infinite alternate ease-in-out;
-    }
-
-    @keyframes floatRoom {
-        0% {
-            transform: scale(1.1) rotateX(-10deg) rotateY(-20deg);
-        }
-        100% {
-            transform: scale(1.1) rotateX(-16deg) rotateY(-40deg);
-        }
-    }
-
-    /* --- ROOM WALLS --- */
-    .face {
-        position: absolute;
-        border: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .face-back {
-        width: 240px;
-        height: 140px;
-        background: linear-gradient(to bottom, #fbf4ea, #e4d1bd);
-        transform: translateZ(-160px);
-    }
-
-    .face-left {
-        width: 160px;
-        height: 140px;
-        background: linear-gradient(to right, #fbf4ea, #dac6b0);
-        transform-origin: left;
-        transform: rotateY(-90deg);
-    }
-
-    .face-floor {
-        width: 240px;
-        height: 160px;
-        top: 100%;
-        left: 0;
-        background: linear-gradient(to bottom, #d6b898, #af9274);
-        transform-origin: top;
-        transform: rotateX(-90deg);
-    }
-
-    /* --- 3D VOLUMETRIC BLOCKS --- */
-    .block-3d {
-        position: absolute;
-        transform-style: preserve-3d;
-        background: var(--bg-front);
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
-    }
-
-    /* Top Face */
-    .block-3d::before {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--depth, 20px);
-        background: var(--bg-top);
-        transform-origin: top;
-        transform: rotateX(90deg);
-    }
-
-    /* Right Face */
-    .block-3d::after {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 100%;
-        width: var(--depth, 20px);
-        height: 100%;
-        background: var(--bg-right);
-        transform-origin: left;
-        transform: rotateY(90deg);
-    }
-
-    /* --- MODELS & PLACEMENT --- */
-
-    /* 1. Rug */
-    .rug {
-        width: 130px;
-        height: 2px;
-        --depth: 80px;
-        --bg-front: #dac2a8;
-        --bg-top: #f0e2cf;
-        --bg-right: #c2a88d;
-        transform: translate3d(60px, 138px, -20px);
-    }
-
-    /* 2. Wall Art */
-    .art-frame {
-        width: 40px;
-        height: 50px;
-        --depth: 3px;
-        --bg-front: var(--ink);
-        --bg-top: #40372d;
-        --bg-right: #1a1612;
-        transform: translate3d(45px, 25px, -157px);
-    }
-    .art-canvas {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        background:
-            radial-gradient(
-                circle at 70% 30%,
-                var(--terracotta) 20%,
-                transparent 21%
-            ),
-            linear-gradient(
-                45deg,
-                transparent 40%,
-                var(--forest) 41%,
-                var(--forest) 60%,
-                transparent 61%
-            ),
-            var(--card);
-    }
-
-    /* 3. Floating Shelves */
-    .shelf-1 {
-        width: 45px;
-        height: 4px;
-        --depth: 16px;
-        --bg-front: #82664d;
-        --bg-top: #9c7b5d;
-        --bg-right: #5e4a38;
-        transform: translate3d(175px, 50px, -144px);
-    }
-    .shelf-2 {
-        width: 45px;
-        height: 4px;
-        --depth: 16px;
-        --bg-front: #82664d;
-        --bg-top: #9c7b5d;
-        --bg-right: #5e4a38;
-        transform: translate3d(175px, 80px, -144px);
-    }
-
-    /* 4. Sofa */
-    .sofa-base {
-        width: 90px;
-        height: 18px;
-        --depth: 40px;
-        --bg-front: #5f7254;
-        --bg-top: #758a68;
-        --bg-right: #4a5941;
-        transform: translate3d(20px, 122px, -120px);
-    }
-    .sofa-back {
-        width: 90px;
-        height: 35px;
-        --depth: 8px;
-        --bg-front: #667a5a;
-        --bg-top: #7c916e;
-        --bg-right: #516147;
-        transform: translate3d(20px, 87px, -152px);
-    }
-    .sofa-arm-l {
-        width: 12px;
-        height: 28px;
-        --depth: 40px;
-        --bg-front: #6b805e;
-        --bg-top: #829973;
-        --bg-right: #56664c;
-        transform: translate3d(20px, 112px, -120px);
-    }
-    .sofa-arm-r {
-        width: 12px;
-        height: 28px;
-        --depth: 40px;
-        --bg-front: #6b805e;
-        --bg-top: #829973;
-        --bg-right: #56664c;
-        transform: translate3d(98px, 112px, -120px);
-    }
-
-    /* 5. Coffee Table */
-    .table-base {
-        width: 25px;
-        height: 20px;
-        --depth: 20px;
-        --bg-front: #a46548;
-        --bg-top: #bd7959;
-        --bg-right: #875138;
-        transform: translate3d(132px, 120px, -70px);
-    }
-    .table-top {
-        width: 50px;
-        height: 5px;
-        --depth: 30px;
-        --bg-front: #bb6f4b;
-        --bg-top: #d4835d;
-        --bg-right: #9e5939;
-        transform: translate3d(120px, 115px, -65px);
-    }
-
-    /* --- MOBILE RESPONSIVENESS --- */
-    @media (max-width: 580px) {
-        .room-stage {
-            height: 320px;
-        }
-        .room-cube {
-            animation: floatRoomMobile 12s infinite alternate ease-in-out;
-        }
-    }
-
-    @keyframes floatRoomMobile {
-        0% {
-            transform: scale(0.9) rotateX(-8deg) rotateY(-15deg);
-        }
-        100% {
-            transform: scale(0.9) rotateX(-12deg) rotateY(-30deg);
-        }
-    }
-</style>

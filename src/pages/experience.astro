@@ -1,0 +1,383 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={`Experience | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main class="experience-main">
+            <section class="experience" aria-labelledby="experience-title">
+                <div class="experience-text">
+                    <a href="/" class="back-link">&larr; Back to Home</a>
+                    <h2 id="experience-title">Feel how it works in 3D</h2>
+                    <p>
+                        Drag your cursor on desktop or tilt your phone to
+                        preview how furniture placement can look from different
+                        angles.
+                    </p>
+                    <ul class="bullets">
+                        <li>
+                            Room dimensions from floorplan scan or camera
+                            walk-through
+                        </li>
+                        <li>
+                            Virtual replicas of your real furniture for move-day
+                            planning
+                        </li>
+                        <li>
+                            One inventory that follows you from apartment to
+                            forever home
+                        </li>
+                    </ul>
+                </div>
+                <div class="room-stage" id="roomStage">
+                    <div class="room-cube" id="roomCube" aria-hidden="true">
+                        <div class="face face-back"></div>
+                        <div class="face face-floor"></div>
+                        <div class="face face-left"></div>
+
+                        <div class="block-3d art-frame">
+                            <div class="art-canvas"></div>
+                        </div>
+
+                        <div class="block-3d rug"></div>
+
+                        <div class="block-3d shelf-1"></div>
+                        <div class="block-3d shelf-2"></div>
+
+                        <div class="block-3d sofa-base"></div>
+                        <div class="block-3d sofa-back"></div>
+                        <div class="block-3d sofa-arm-l"></div>
+                        <div class="block-3d sofa-arm-r"></div>
+
+                        <div class="block-3d table-base"></div>
+                        <div class="block-3d table-top"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <Footer />
+
+        <script>
+            const stage = document.getElementById("roomStage");
+            const cube = document.getElementById("roomCube");
+
+            if (stage && cube) {
+                stage.addEventListener("pointermove", (event) => {
+                    const rect = stage.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - 0.5;
+                    const y = (event.clientY - rect.top) / rect.height - 0.5;
+                    const rotateY = x * 28;
+                    const rotateX = -y * 18;
+                    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                stage.addEventListener("pointerleave", () => {
+                    cube.style.transform = "rotateX(-12deg) rotateY(-16deg)";
+                });
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+    :root {
+        --bg-cream: #fbf4ea;
+        --bg-sand: #f0e2cf;
+        --ink: #2d261f;
+        --ink-soft: #5a4f43;
+        --terracotta: #bb6f4b;
+        --forest: #5f7254;
+        --card: #fff9f1;
+        --line: #e5d2bd;
+    }
+
+    .experience-main {
+        width: min(1120px, calc(100% - 2rem));
+        padding: 4rem 0 8rem;
+        margin: 0 auto;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: var(--terracotta);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    .experience {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+        background: #fdfaf6;
+        padding: 4rem;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        box-shadow: 0 14px 38px rgba(73, 56, 40, 0.05);
+    }
+
+    .experience-text h2 {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size: 2.5rem;
+        color: var(--ink);
+        margin-bottom: 1rem;
+    }
+
+    .experience p {
+        color: var(--ink-soft);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .bullets {
+        margin: 2rem 0 0;
+        padding-left: 1.2rem;
+        color: var(--ink);
+        line-height: 1.8;
+    }
+
+    .room-stage {
+        height: 440px;
+        border-radius: 24px;
+        background:
+            radial-gradient(
+                circle at 20% 10%,
+                rgba(255, 255, 255, 0.8),
+                transparent 50%
+            ),
+            linear-gradient(160deg, #e8d5bd, #c4a98a);
+        border: 1px solid var(--line);
+        display: grid;
+        place-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+    }
+
+    .room-cube {
+        width: 260px;
+        height: 160px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-12deg) rotateY(-16deg);
+        transition: transform 220ms ease;
+        /* Note: We remove the float animation to let JS tracking work better,
+           or keep it if it's preferred. The original JS tracking conflicts with animation on transform. */
+    }
+
+    /* --- ROOM WALLS --- */
+    .face {
+        position: absolute;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .face-back {
+        width: 260px;
+        height: 160px;
+        background: linear-gradient(to bottom, #fbf4ea, #e4d1bd);
+        transform: translateZ(-160px);
+    }
+
+    .face-left {
+        width: 160px;
+        height: 160px;
+        background: linear-gradient(to right, #fbf4ea, #dac6b0);
+        transform-origin: left;
+        transform: rotateY(-90deg);
+    }
+
+    .face-floor {
+        width: 260px;
+        height: 160px;
+        top: 100%;
+        left: 0;
+        background: linear-gradient(to bottom, #d6b898, #af9274);
+        transform-origin: top;
+        transform: rotateX(-90deg);
+    }
+
+    /* --- 3D VOLUMETRIC BLOCKS --- */
+    .block-3d {
+        position: absolute;
+        transform-style: preserve-3d;
+        background: var(--bg-front);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .block-3d::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--depth, 20px);
+        background: var(--bg-top);
+        transform-origin: top;
+        transform: rotateX(90deg);
+    }
+
+    .block-3d::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 100%;
+        width: var(--depth, 20px);
+        height: 100%;
+        background: var(--bg-right);
+        transform-origin: left;
+        transform: rotateY(90deg);
+    }
+
+    /* --- MODELS & PLACEMENT --- */
+
+    /* 1. Rug */
+    .rug {
+        width: 150px;
+        height: 2px;
+        --depth: 100px;
+        --bg-front: #dac2a8;
+        --bg-top: #f0e2cf;
+        --bg-right: #c2a88d;
+        transform: translate3d(55px, 158px, -10px);
+    }
+
+    /* 2. Wall Art */
+    .art-frame {
+        width: 50px;
+        height: 60px;
+        --depth: 4px;
+        --bg-front: var(--ink);
+        --bg-top: #40372d;
+        --bg-right: #1a1612;
+        transform: translate3d(50px, 20px, -156px);
+    }
+    .art-canvas {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background:
+            radial-gradient(
+                circle at 70% 30%,
+                var(--terracotta) 20%,
+                transparent 21%
+            ),
+            linear-gradient(
+                45deg,
+                transparent 40%,
+                var(--forest) 41%,
+                var(--forest) 60%,
+                transparent 61%
+            ),
+            var(--card);
+    }
+
+    /* 3. Floating Shelves */
+    .shelf-1 {
+        width: 50px;
+        height: 5px;
+        --depth: 18px;
+        --bg-front: #82664d;
+        --bg-top: #9c7b5d;
+        --bg-right: #5e4a38;
+        transform: translate3d(185px, 60px, -142px);
+    }
+    .shelf-2 {
+        width: 50px;
+        height: 5px;
+        --depth: 18px;
+        --bg-front: #82664d;
+        --bg-top: #9c7b5d;
+        --bg-right: #5e4a38;
+        transform: translate3d(185px, 90px, -142px);
+    }
+
+    /* 4. Sofa */
+    .sofa-base {
+        width: 100px;
+        height: 20px;
+        --depth: 45px;
+        --bg-front: #5f7254;
+        --bg-top: #758a68;
+        --bg-right: #4a5941;
+        transform: translate3d(25px, 140px, -115px);
+    }
+    .sofa-back {
+        width: 100px;
+        height: 40px;
+        --depth: 10px;
+        --bg-front: #667a5a;
+        --bg-top: #7c916e;
+        --bg-right: #516147;
+        transform: translate3d(25px, 100px, -150px);
+    }
+    .sofa-arm-l {
+        width: 14px;
+        height: 32px;
+        --depth: 45px;
+        --bg-front: #6b805e;
+        --bg-top: #829973;
+        --bg-right: #56664c;
+        transform: translate3d(25px, 128px, -115px);
+    }
+    .sofa-arm-r {
+        width: 14px;
+        height: 32px;
+        --depth: 45px;
+        --bg-front: #6b805e;
+        --bg-top: #829973;
+        --bg-right: #56664c;
+        transform: translate3d(111px, 128px, -115px);
+    }
+
+    /* 5. Coffee Table */
+    .table-base {
+        width: 30px;
+        height: 22px;
+        --depth: 25px;
+        --bg-front: #a46548;
+        --bg-top: #bd7959;
+        --bg-right: #875138;
+        transform: translate3d(135px, 138px, -65px);
+    }
+    .table-top {
+        width: 56px;
+        height: 6px;
+        --depth: 35px;
+        --bg-front: #bb6f4b;
+        --bg-top: #d4835d;
+        --bg-right: #9e5939;
+        transform: translate3d(122px, 132px, -60px);
+    }
+
+    @media (max-width: 900px) {
+        .experience {
+            grid-template-columns: 1fr;
+            padding: 3rem 2rem;
+            gap: 2rem;
+        }
+    }
+
+    @media (max-width: 580px) {
+        .room-stage {
+            height: 340px;
+        }
+        .room-cube {
+            transform: rotateX(-8deg) rotateY(-12deg) scale(0.85);
+        }
+    }
+</style>

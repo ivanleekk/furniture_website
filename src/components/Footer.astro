@@ -4,7 +4,12 @@ const today = new Date();
 
 <footer>
 	&copy; {today.getFullYear()} Your name here. All rights reserved.
+
+	<div class="b2b-link">
+		Are you a furniture retailer? <a href="mailto:partners@modulo.com">Partner with us</a> to reduce return rates and boost sales.
+	</div>
 	<div class="social-links">
+
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
 			<svg
@@ -46,7 +51,22 @@ const today = new Date();
 		color: rgb(var(--gray));
 		text-align: center;
 	}
+
+	.b2b-link {
+		margin-top: 1.5em;
+		font-size: 0.9em;
+		color: rgb(var(--gray));
+	}
+	.b2b-link a {
+		color: var(--terracotta, #bb6f4b);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.b2b-link a:hover {
+		text-decoration: underline;
+	}
 	.social-links {
+
 		display: flex;
 		justify-content: center;
 		gap: 1em;

@@ -168,6 +168,6 @@ hr {
     font-weight: 700;
     color: rgb(var(--black));
     margin: 0;
-    width: 100%; /* Ensures the block takes full width to align text */
+    width: 10%; /* Ensures the block takes full width to align text */
     text-align: center;
 }

@@ -12,62 +12,114 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     </head>
     <body>
         <Header />
-                <main class="landing-main">
+        <main class="landing-main">
             <section class="hero-section">
                 <div class="hero-content">
                     <h1>Design your space, perfectly measured.</h1>
                     <p class="hero-copy">
-                        Stop guessing, start visualizing. Scan your room, place your existing furniture, and shop for new pieces from top retailers—all in lifelike augmented reality.
+                        Stop guessing, start visualizing. Scan your room, place
+                        your existing furniture, and shop for new pieces from
+                        top retailers—all in lifelike augmented reality.
                     </p>
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="#waitlist">Get Early Access & Updates</a>
+                        <a class="btn btn-primary" href="#waitlist"
+                            >Get Early Access & Updates</a
+                        >
                     </div>
-                    <p class="microcopy">Join the waitlist to be the first to experience stress-free furnishing.</p>
+                    <p class="microcopy">
+                        Join the waitlist to be the first to experience
+                        stress-free furnishing.
+                    </p>
                 </div>
                 <div class="hero-visual-placeholder">
-                    <p>[ Interactive 3D Animation / Looping Video Placeholder ]<br/>
-                    <a href="/experience" class="secondary-link">View 3D Interactive Room Demo</a>
+                    <video autoplay loop muted playsinline>
+                        <source
+                            src="src/assets/CAD_Tool_Room_Decoration_Configurations.mp4"
+                            type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>
+                        <a href="/experience" class="secondary-link"
+                            >View 3D Interactive Room Demo</a
+                        >
                     </p>
                 </div>
             </section>
 
             <section class="hook-section" aria-labelledby="hook-title">
-                <h2 id="hook-title">Moving or renovating is stressful. Buying furniture shouldn't be.</h2>
+                <h2 id="hook-title">
+                    Moving or renovating is stressful. Buying furniture
+                    shouldn't be.
+                </h2>
                 <p>
-                    Whether you just got the keys to your new BTO, are moving into a new rental, or simply want to refresh your living room, we eliminate the tape-measure anxiety. Know exactly how your home will look and feel <em>before</em> you spend a single dollar.
+                    Whether you just got the keys to your new BTO, are moving
+                    into a new rental, or simply want to refresh your living
+                    room, we eliminate the tape-measure anxiety. Know exactly
+                    how your home will look and feel <em>before</em> you spend a single
+                    dollar.
                 </p>
             </section>
 
             <section class="feature-block">
                 <div class="feature-text">
                     <h2>No more guessing. Accurate floorplans in seconds.</h2>
-                    <p>Leave the measuring tape in the toolbox. Simply use your phone's camera to scan your room. We instantly detect walls, doors, and windows to generate a precise, to-scale digital floorplan. It is the perfect blank canvas for your dream home.</p>
+                    <p>
+                        Leave the measuring tape in the toolbox. Simply use your
+                        phone's camera to scan your room. We instantly detect
+                        walls, doors, and windows to generate a precise,
+                        to-scale digital floorplan. It is the perfect blank
+                        canvas for your dream home.
+                    </p>
                 </div>
                 <div class="feature-visual">
-                    <div class="placeholder-graphic">[ Blueprint Scan GIF Placeholder ]</div>
+                    <video
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                        src="src/assets/Floorplan_Generation_Video_Ready.mp4"
+                    >
+                    </video>
                 </div>
             </section>
 
             <section class="feature-block reverse">
                 <div class="feature-text">
                     <h2>Keep what you love. Plan around what you own.</h2>
-                    <p>Bringing your current sofa or favorite dining table to your new place? Scan your existing furniture to create a "Virtual Inventory" of 3D models. Drop them into your new floorplan to see exactly where they fit. When you move, your digital furniture moves with you.</p>
+                    <p>
+                        Bringing your current sofa or favorite dining table to
+                        your new place? Scan your existing furniture to create a
+                        "Virtual Inventory" of 3D models. Drop them into your
+                        new floorplan to see exactly where they fit. When you
+                        move, your digital furniture moves with you.
+                    </p>
                 </div>
                 <div class="feature-visual">
-                    <div class="placeholder-split">
-                        <div class="split-half">[ Real Photo ]</div>
-                        <div class="split-half">[ 3D Model ]</div>
-                    </div>
+                    <img
+                        src="src/assets/scanning.png"
+                        alt="Augmented Reality Catalog Browsing"
+                    />
                 </div>
             </section>
 
             <section class="feature-block">
                 <div class="feature-text">
                     <h2>See it before you buy it.</h2>
-                    <p>Browse our integrated catalog of top furniture retailers. Drop any product directly into your digital room to check the fit, or use AR to project it live into your physical space. Does it match the walls? Does it fit next to your old coffee table? Now you'll know for sure. Once it's perfect, buy it straight from the app.</p>
+                    <p>
+                        Browse our integrated catalog of top furniture
+                        retailers. Drop any product directly into your digital
+                        room to check the fit, or use AR to project it live into
+                        your physical space. Does it match the walls? Does it
+                        fit next to your old coffee table? Now you'll know for
+                        sure. Once it's perfect, buy it straight from the app.
+                    </p>
                 </div>
                 <div class="feature-visual">
-                    <div class="placeholder-graphic">[ AR View Placeholder ]</div>
+                    <img
+                        src="src/assets/AR_mode.png"
+                        alt="Augmented Reality Catalog Browsing"
+                    />
                 </div>
             </section>
 
@@ -75,36 +127,97 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 <h2>From Empty Space to Dream Home in 3 Steps</h2>
                 <div class="steps-grid">
                     <div class="step-card">
-                        <div class="step-icon">[ Icon ]</div>
+                        <div
+                            class="step-icon step-icon-scan"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M4.5 7.5h2.25l1.2-1.8a1.5 1.5 0 0 1 1.248-.675h5.604c.5 0 .966.25 1.248.675l1.2 1.8H19.5A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V9a1.5 1.5 0 0 1 1.5-1.5Z"
+                                ></path>
+                                <path d="M9 13.5a3 3 0 1 0 6 0a3 3 0 0 0-6 0Z"
+                                ></path>
+                            </svg>
+                        </div>
                         <h3>Step 1: Scan Your Space.</h3>
-                        <p>Open the app and pan your camera. Get a 3D, measured floorplan instantly.</p>
+                        <p>
+                            Open the app and pan your camera. Get a 3D, measured
+                            floorplan instantly.
+                        </p>
                     </div>
                     <div class="step-card">
-                        <div class="step-icon">[ Icon ]</div>
+                        <div
+                            class="step-icon step-icon-inventory"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M4.5 7.5L12 3l7.5 4.5L12 12L4.5 7.5Z"
+                                ></path>
+                                <path d="M4.5 7.5V16.5L12 21l7.5-4.5V7.5"
+                                ></path>
+                                <path d="M12 12v9"></path>
+                            </svg>
+                        </div>
                         <h3>Step 2: Bring Your Stuff.</h3>
-                        <p>Snap a photo of the furniture you're keeping. Watch it turn into a 3D model you can place in your new room.</p>
+                        <p>
+                            Snap a photo of the furniture you're keeping. Watch
+                            it turn into a 3D model you can place in your new
+                            room.
+                        </p>
                     </div>
                     <div class="step-card">
-                        <div class="step-icon">[ Icon ]</div>
+                        <div
+                            class="step-icon step-icon-shop"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M5.25 7.5h13.5l-1.35 10.125a1.5 1.5 0 0 1-1.488 1.312H8.088A1.5 1.5 0 0 1 6.6 17.625L5.25 7.5Z"
+                                ></path>
+                                <path d="M9 7.5V6a3 3 0 1 1 6 0v1.5"></path>
+                                <path d="m9.75 13.5 1.5 1.5 3-3"></path>
+                            </svg>
+                        </div>
                         <h3>Step 3: Shop & Complete.</h3>
-                        <p>Browse retailer catalogs, test new pieces in Augmented Reality, and buy with total confidence.</p>
+                        <p>
+                            Browse retailer catalogs, test new pieces in
+                            Augmented Reality, and buy with total confidence.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <section class="personas-section">
                 <div class="persona-card">
-                    <div class="persona-visual">[ Lifestyle Image: Empty Apartment ]</div>
+                    <div class="persona-visual">
+                        <img
+                            src="src/assets/unfurnished.png"
+                            alt="unfurnished apartment"
+                        />
+                    </div>
                     <div class="persona-text">
                         <h3>For New Homeowners:</h3>
-                        <p>Plan your BTO, condo, or house perfectly before the keys even arrive. Prevent costly contractor miscommunications and share your vision clearly.</p>
+                        <p>
+                            Plan your BTO, condo, or house perfectly before the
+                            keys even arrive. Prevent costly contractor
+                            miscommunications and share your vision clearly.
+                        </p>
                     </div>
                 </div>
                 <div class="persona-card">
-                    <div class="persona-visual">[ Lifestyle Image: Furnished Room ]</div>
+                    <div class="persona-visual">
+                        <img
+                            src="src/assets/furnished.png"
+                            alt="Furnished apartment"
+                        />
+                    </div>
                     <div class="persona-text">
                         <h3>For Renters & Upgraders:</h3>
-                        <p>Effortlessly test out new styles and layouts without the heavy lifting. Find pieces that perfectly match the furniture you already own.</p>
+                        <p>
+                            Effortlessly test out new styles and layouts without
+                            the heavy lifting. Find pieces that perfectly match
+                            the furniture you already own.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -113,7 +226,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 <div class="cta-content">
                     <h2>Ready to design your space the smart way?</h2>
                     <p>
-                        We are building the ultimate tool to make home furnishing accurate, easy, and fun. Join our community today to get exclusive launch updates, beta invites, and early access to our virtual design tools.
+                        We are building the ultimate tool to make home
+                        furnishing accurate, easy, and fun. Join our community
+                        today to get exclusive launch updates, beta invites, and
+                        early access to our virtual design tools.
                     </p>
                     <form class="newsletter-form">
                         <label for="email" class="sr-only">Email address</label>
@@ -124,22 +240,27 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                             placeholder="Enter your email address"
                             required
                         />
-                        <button type="submit">Sign Up for Our Newsletter</button>
+                        <button type="submit">Sign Up for Our Newsletter</button
+                        >
                     </form>
-                    <p class="microcopy">No spam. Just updates on how to build your dream home.</p>
+                    <p class="microcopy">
+                        No spam. Just updates on how to build your dream home.
+                    </p>
                 </div>
             </section>
         </main>
         <Footer />
-
-
     </body>
 </html>
 
 <style>
-
     body {
-        background: radial-gradient(circle at top left, #fdfbf7, #f4eee6 40%, #e9dfd1 100%);
+        background: radial-gradient(
+            circle at top left,
+            #fdfbf7,
+            #f4eee6 40%,
+            #e9dfd1 100%
+        );
         background-attachment: fixed;
     }
 
@@ -156,19 +277,31 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     body {
-        font-family: 'Poppins', 'Inter', sans-serif;
+        font-family: "Poppins", "Inter", sans-serif;
     }
 
     .landing-main {
-        width: min(1120px, calc(100% - 2rem));
+        width: min(1120px, calc(100% - 3rem));
+        max-width: 1120px;
         padding: 2.5rem 0 4rem;
-        display: grid;
-        gap: 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(2.25rem, 5vw, 4.5rem);
         margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .landing-main > section {
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        box-sizing: border-box;
     }
 
     /* Typography */
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
         color: var(--ink);
     }
@@ -188,7 +321,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         text-decoration: none;
         border: 1px solid transparent;
         font-weight: 600;
-        transition: transform 160ms ease, box-shadow 160ms ease;
+        transition:
+            transform 160ms ease,
+            box-shadow 160ms ease;
     }
 
     .btn:hover {
@@ -211,14 +346,28 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     /* Hero Section */
     .hero-section {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+        gap: clamp(1rem, 2.8vw, 3rem);
         align-items: center;
-        padding: 4rem 3rem;
+        padding: clamp(1rem, 3.8vw, 4rem) clamp(0.85rem, 3.2vw, 3rem);
         border-radius: 28px;
-        background: radial-gradient(circle at 80% 20%, rgba(187, 111, 75, 0.1), transparent 48%),
-                    linear-gradient(130deg, var(--bg-cream), var(--bg-sand));
+        background:
+            radial-gradient(
+                circle at 80% 20%,
+                rgba(187, 111, 75, 0.1),
+                transparent 48%
+            ),
+            linear-gradient(130deg, var(--bg-cream), var(--bg-sand));
         box-shadow: 0 14px 38px rgba(73, 56, 40, 0.05);
+        overflow: hidden;
+    }
+
+    .hero-content,
+    .hero-visual-placeholder {
+        min-width: 0;
     }
 
     .hero-section h1 {
@@ -233,17 +382,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     .hero-visual-placeholder {
-        background: rgba(255, 255, 255, 0.5);
-        border: 2px dashed var(--line);
-        border-radius: 16px;
         height: 100%;
-        min-height: 350px;
+        min-height: clamp(220px, 40vw, 350px);
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
         text-align: center;
-        padding: 2rem;
+        gap: 1rem;
+        padding-inline: clamp(0.25rem, 1.5vw, 0.75rem);
         color: var(--ink-soft);
     }
 
@@ -257,7 +404,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     /* Hook Section */
     .hook-section {
         text-align: center;
-        max-width: 800px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
@@ -275,7 +422,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
-        align-items: center;
+        align-items: start;
     }
 
     .feature-block.reverse {
@@ -292,17 +439,25 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     .feature-visual {
-        background: rgba(255, 255, 255, 0.55);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-        border-radius: 24px;
-        height: 350px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        min-height: clamp(220px, 40vw, 350px);
+        padding-inline: clamp(0.25rem, 1.5vw, 0.75rem);
+    }
+
+    .hero-visual-placeholder video,
+    .feature-visual img,
+    .feature-visual video {
+        display: block;
+        width: min(100%, 560px);
+        max-width: 100%;
+        height: auto;
+        max-height: min(62vh, 420px);
+        object-fit: cover;
+        margin-inline: auto;
+        border-radius: 16px;
+        filter: drop-shadow(0 16px 28px rgba(45, 38, 31, 0.28));
     }
 
     .placeholder-graphic {
@@ -347,6 +502,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
+        align-items: stretch;
     }
 
     .step-card {
@@ -358,19 +514,42 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         border-radius: 16px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
         text-align: left;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .step-icon {
-        width: 60px;
-        height: 60px;
-        background: var(--bg-sand);
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(145deg, #f0dfca, #e8d0b4);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: 1.5rem;
         color: var(--forest);
-        font-weight: bold;
+        box-shadow: 0 10px 20px rgba(84, 68, 49, 0.15);
+    }
+
+    .step-icon svg {
+        width: 30px;
+        height: 30px;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .step-icon-scan {
+        color: #55725b;
+    }
+
+    .step-icon-inventory {
+        color: #8c5f48;
+    }
+
+    .step-icon-shop {
+        color: #3f5b74;
     }
 
     .step-card h3 {
@@ -383,6 +562,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        align-items: stretch;
     }
 
     .persona-card {
@@ -393,19 +573,34 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         border-radius: 24px;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .persona-visual {
-        height: 200px;
+        height: clamp(200px, 24vw, 280px);
         background: #e9decb;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
+        line-height: 0;
         color: var(--ink-soft);
         font-style: italic;
     }
 
+    .persona-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .persona-text {
+        position: relative;
+        z-index: 1;
         padding: 2rem;
     }
 
@@ -426,6 +621,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         padding: 5rem 2rem;
         text-align: center;
         box-shadow: 0 10px 40px rgba(187, 111, 75, 0.1);
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .cta-content {
@@ -477,7 +674,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         color: #fff;
         background: var(--navy-btn);
         cursor: pointer;
-        transition: transform 160ms ease, box-shadow 160ms ease;
+        transition:
+            transform 160ms ease,
+            box-shadow 160ms ease;
     }
 
     .newsletter-form button:hover {
@@ -489,7 +688,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     @media (max-width: 900px) {
         .hero-section {
             grid-template-columns: 1fr;
-            padding: 3rem 2rem;
+            padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 4vw, 2rem);
         }
 
         .feature-block {
@@ -511,6 +710,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     @media (max-width: 600px) {
+        .landing-main {
+            width: min(1120px, calc(100% - 1.5rem));
+            gap: 2rem;
+        }
+
+        .hero-visual-placeholder,
+        .feature-visual {
+            min-height: auto;
+            padding-inline: 0;
+        }
+
+        .hero-visual-placeholder video,
+        .feature-visual img,
+        .feature-visual video {
+            width: 100%;
+            max-height: none;
+        }
+
         .newsletter-form input {
             min-width: 100%;
         }
@@ -520,4 +737,3 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         }
     }
 </style>
-

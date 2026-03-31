@@ -8,7 +8,9 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
-  integrations: [mdx(), sitemap()],
-  adapter: vercel(),
+    site: 'https://example.com',
+    integrations: [mdx(), sitemap()],
+    adapter: vercel({
+        imageService: true, // Enable Vercel image service
+    }),
 });

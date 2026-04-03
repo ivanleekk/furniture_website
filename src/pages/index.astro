@@ -233,6 +233,44 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
                 </div>
             </section>
 
+            <section class="pricing-section">
+                <h2>Simple, transparent pricing.</h2>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>100% Free</h3>
+                        <p class="pricing-badge">For Consumers</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Unlimited room scans & floorplan generation
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Virtual inventory for existing furniture
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Browse and test items in Augmented Reality
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                No hidden fees, ever.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <section id="waitlist" class="cta final-cta">
                 <div class="cta-content">
                     <h2>Ready to design your space the smart way?</h2>
@@ -619,6 +657,76 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         font-size: 1.4rem;
         margin-bottom: 1rem;
         color: var(--terracotta);
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .pricing-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .pricing-card {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        text-align: left;
+    }
+
+    .pricing-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px dashed var(--line);
+    }
+
+    .pricing-header h3 {
+        font-size: 3rem;
+        margin: 0;
+        color: var(--terracotta);
+    }
+
+    .pricing-badge {
+        display: inline-block;
+        background: var(--navy-btn);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .pricing-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pricing-features li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+        color: var(--ink);
+    }
+
+    .pricing-features li svg {
+        width: 24px;
+        height: 24px;
+        color: var(--forest);
+        flex-shrink: 0;
     }
 
     /* Final CTA */

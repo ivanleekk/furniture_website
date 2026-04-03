@@ -6,11 +6,10 @@ import HeaderLink from "./HeaderLink.astro";
 <header>
     <nav>
         <h2><a href="/">{SITE_TITLE}</a></h2>
-        <!-- <div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div> -->
+        <div class="internal-links">
+			<HeaderLink href="/">For Consumers</HeaderLink>
+			<HeaderLink href="/partner">For Partners</HeaderLink>
+		</div>
         <!-- <div class="social-links">
             <a href="https://m.webtoo.ls/@astro" target="_blank">
                 <span class="sr-only">Follow Astro on Mastodon</span>
@@ -90,6 +89,10 @@ import HeaderLink from "./HeaderLink.astro";
     nav a.active {
         text-decoration: none;
         border-bottom-color: var(--accent);
+    }
+    .internal-links {
+        display: flex;
+        gap: 1rem;
     }
     .social-links,
     .social-links a {

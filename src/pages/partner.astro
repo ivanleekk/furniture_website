@@ -14,28 +14,58 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         <Header />
         <main class="partner-main">
             <section class="partner-hero">
-                <h1>Transform How You Sell Furniture</h1>
-                <p class="hero-copy">
-                    Empower your customers to visualize your furniture in their actual homes before they buy. Boost sales, eliminate guesswork, and drastically reduce returns.
-                </p>
+                <div class="hero-content">
+                    <h1>Transform How You Sell Furniture</h1>
+                    <p class="hero-copy">
+                        Empower your customers to visualize your furniture in their actual homes before they buy. Boost sales, eliminate guesswork, and drastically reduce returns.
+                    </p>
+                </div>
+                <div class="hero-visual">
+                    <!-- Placeholder image matching the visual style -->
+                    <img src="/scanning.png" alt="AR Furniture Visualization for Partners" />
+                </div>
             </section>
 
             <section class="value-prop-section">
                 <h2>Why Partner With Us?</h2>
                 <div class="benefits-grid">
                     <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
                         <h3>Sell More Furniture</h3>
                         <p>Confidence drives conversions. When customers can see exactly how a piece fits and looks in their space, they are more likely to complete the purchase.</p>
                     </div>
                     <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18" />
+                                <path d="m19 9-5 5-4-4-3 3" />
+                            </svg>
+                        </div>
                         <h3>Fewer Returns</h3>
                         <p>No more "it looked smaller online" or "it doesn't match my rug". Accurate visualization means fewer costly returns and happier customers.</p>
                     </div>
                     <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg>
+                        </div>
                         <h3>Universal API Integration</h3>
                         <p>Seamlessly integrate our 3D visualizer directly into your existing website. Your products, your branding, our technology.</p>
                     </div>
                     <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                <path d="M2 12h20" />
+                            </svg>
+                        </div>
                         <h3>Cross-Partner Ecosystem</h3>
                         <p>Customers can import their existing home scans and virtual inventory across all participating partners, making it easier than ever to shop for complementary pieces.</p>
                     </div>
@@ -94,13 +124,52 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     .partner-hero {
-        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+        gap: clamp(1rem, 2.8vw, 3rem);
+        align-items: center;
+        padding: clamp(1rem, 3.8vw, 4rem) clamp(0.85rem, 3.2vw, 3rem);
+        border-radius: 28px;
+        background:
+            radial-gradient(
+                circle at 80% 20%,
+                rgba(187, 111, 75, 0.1),
+                transparent 48%
+            ),
+            linear-gradient(130deg, var(--bg-cream), var(--bg-sand));
+        box-shadow: 0 14px 38px rgba(73, 56, 40, 0.05);
+        overflow: hidden;
+    }
+
+    .hero-content,
+    .hero-visual {
+        min-width: 0;
+    }
+
+    .hero-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: clamp(220px, 40vw, 350px);
+        padding-inline: clamp(0.25rem, 1.5vw, 0.75rem);
+    }
+
+    .hero-visual img {
+        display: block;
+        width: min(100%, 560px);
+        max-width: 100%;
+        height: auto;
+        max-height: min(62vh, 420px);
+        object-fit: cover;
+        margin-inline: auto;
+        border-radius: 16px;
+        filter: drop-shadow(0 16px 28px rgba(45, 38, 31, 0.28));
     }
 
     .partner-hero h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
         margin-bottom: 1rem;
-        line-height: 1.2;
+        line-height: 1.1;
     }
 
     .hero-copy {
@@ -129,6 +198,27 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         padding: 2.5rem;
         border-radius: 20px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .benefit-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(145deg, #f0dfca, #e8d0b4);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--navy-btn);
+        box-shadow: 0 4px 10px rgba(84, 68, 49, 0.1);
+    }
+
+    .benefit-icon svg {
+        width: 24px;
+        height: 24px;
     }
 
     .benefit-card h3 {
